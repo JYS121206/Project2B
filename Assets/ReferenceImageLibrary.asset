@@ -14,4 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_GuidLow: 4922683690483249499
   m_GuidHigh: 14241880328153937030
-  m_Images: []
+  m_Images:
+  - m_SerializedGuid:
+      m_GuidLow: 5507474595930430498
+      m_GuidHigh: 12840899401023372696
+    m_SerializedTextureGuid:
+      m_GuidLow: 15272846800266146386
+      m_GuidHigh: 670528181295791928
+    m_Size: {x: 0, y: 0}
+    m_SpecifySize: 0
+    m_Name: TestQR
+    m_Texture: {fileID: 0}
