@@ -21,6 +21,11 @@ public class UICamMenu : MonoBehaviour
         camMode = true;
         btnPrintSc.gameObject.SetActive(false);
         ListGroup.SetActive(false);
+        btnOpenList.gameObject.SetActive(false);
+
+        btnChangeMode.onClick.AddListener(ChangeMode);
+        btnOpenList.onClick.AddListener(OpenList);
+        btnCloseList.onClick.AddListener(CloseList);
     }
 
     void Update()
@@ -37,13 +42,15 @@ public class UICamMenu : MonoBehaviour
         {
             btnPrintSc.gameObject.SetActive(false);
             ListGroup.SetActive(false);
-            camMode = true;
+            btnOpenList.gameObject.SetActive(false);
+            camMode = false;
         }
         else
         {
             btnPrintSc.gameObject.SetActive(true);
-            ListGroup.SetActive(true);
-            camMode = false;
+            ListGroup.SetActive(false);
+            btnOpenList.gameObject.SetActive(true);
+            camMode = true;
         }
     }
 
