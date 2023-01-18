@@ -7,7 +7,8 @@ public enum Scene
 {
     Main,
     CamScene,
-    YSJ
+    YSJ,
+    CharacterList
 }
 
 public class ScenesManager : MonoBehaviour

@@ -17,6 +17,9 @@ public class UIMainMenu : MonoBehaviour
     public Button btnCloseList;
     public GameObject ListGroup;
 
+    public Button toCam;
+    public Button toCharacterList;
+
     bool isOpen;
     int myCoin;
 
@@ -35,6 +38,8 @@ public class UIMainMenu : MonoBehaviour
         btnOpenMenu.onClick.AddListener(OpenMenu);
         btnOpenList.onClick.AddListener(OpenList);
         btnCloseList.onClick.AddListener(CloseList);
+        toCam.onClick.AddListener(() => { ScenesManager.GetInstance().ChangeScene(Scene.CamScene); });
+        toCharacterList.onClick.AddListener(() => { ScenesManager.GetInstance().ChangeScene(Scene.CharacterList); });
     }
 
     /// <summary>
@@ -82,4 +87,5 @@ public class UIMainMenu : MonoBehaviour
         btnOpenList.gameObject.SetActive(true);
         btnRoom.gameObject.SetActive(true);
     }
+
 }
