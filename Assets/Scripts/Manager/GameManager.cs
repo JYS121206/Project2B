@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-    public int Coin = 100;
+    public int Coin = 100; //플레이어 재화
 
     void Start()
     {
