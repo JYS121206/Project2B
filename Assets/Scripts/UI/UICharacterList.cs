@@ -69,6 +69,8 @@ public class UICharacterList : MonoBehaviour
 
     public void CloseCharacterList()
     {
+        ToList();
+        ShowAll();
         gameObject.SetActive(false);
     }
 

@@ -18,10 +18,16 @@ public class UIMainMenu : MonoBehaviour
     public GameObject ListGroup;
 
     public Button toCam;
+    public Button toCr;
     public Button toCharacterList;
+    public GameObject UICharacterList;
+
+    public Button[] btnBookmark = new Button[3];
 
     bool isOpen;
     int myCoin;
+
+    CharacterManager characterManager;
 
     void Start()
     {
@@ -29,17 +35,22 @@ public class UIMainMenu : MonoBehaviour
         myCoin = GameManager.GetInstance().Coin;
         txtCoin.text = $"x {myCoin}";
 
+        //CharacterManager 할당
+        characterManager = CharacterManager.GetInstance();
+
         //UI세팅 초기화
         isOpen = false;
         MenuGroup.SetActive(false);
         ListGroup.SetActive(false);
+        UICharacterList.gameObject.SetActive(false);
 
         //버튼에 함수 추가
         btnOpenMenu.onClick.AddListener(OpenMenu);
         btnOpenList.onClick.AddListener(OpenList);
         btnCloseList.onClick.AddListener(CloseList);
         toCam.onClick.AddListener(() => { ScenesManager.GetInstance().ChangeScene(Scene.CamScene); });
-        toCharacterList.onClick.AddListener(() => { ScenesManager.GetInstance().ChangeScene(Scene.CharacterList); });
+        toCharacterList.onClick.AddListener(OpenCharacterList);
+        toCr.onClick.AddListener(OpenCharacterList);
     }
 
     /// <summary>
@@ -73,6 +84,23 @@ public class UIMainMenu : MonoBehaviour
         ListGroup.SetActive(true);
         btnOpenList.gameObject.SetActive(false);
         btnRoom.gameObject.SetActive(false);
+
+        //북마크 이미지 초기화
+        for (int i = 0; i < btnBookmark.Length; i++)
+            btnBookmark[i].GetComponent<Image>().sprite = Resources.Load<Sprite>($"Image/empty");
+
+        //북마크 이미지 세팅
+        int x = 0;
+        for (int i = 0; i < characterManager.Character.Length; i++)
+        {
+            if (characterManager.Character[i].isBookmark)
+            {
+                btnBookmark[x].GetComponent<Image>().sprite = Resources.Load<Sprite>($"Image/{characterManager.Character[i].characterName}");
+                x++;
+            }
+            if (x >= 3)
+                return;
+        }
     }
 
     /// <summary>
@@ -86,6 +114,12 @@ public class UIMainMenu : MonoBehaviour
         ListGroup.SetActive(false);
         btnOpenList.gameObject.SetActive(true);
         btnRoom.gameObject.SetActive(true);
+    }
+
+    public void OpenCharacterList()
+    {
+        UICharacterList.gameObject.SetActive(true);
+        CloseList();
     }
 
 }
