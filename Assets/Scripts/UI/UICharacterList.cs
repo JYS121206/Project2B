@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -30,6 +29,9 @@ public class UICharacterList : MonoBehaviour
 
     CharacterManager characterManager;
 
+    public GameObject go;
+    public GameObject curPick;
+
     void Start()
     {
         characterManager = CharacterManager.GetInstance();
@@ -46,18 +48,8 @@ public class UICharacterList : MonoBehaviour
             txtProfile[i] = GetComponentsInChildren<Text>()[i];
             imgCharacter[i] = btnProfile[i].GetComponentsInChildren<Image>()[2];
             imgBookmark[i] = btnProfile[i].GetComponentsInChildren<Image>()[3];
-
-            imgCharacter[i].sprite = Resources.Load<Sprite>($"Image/{characterManager.Character[i].characterName}");
-            txtProfile[i].text = $"{characterManager.Character[i].characterName}";
-
-            if (characterManager.Character[i].isBookmark)
-                imgBookmark[i].gameObject.SetActive(true);
-            else
-                imgBookmark[i].gameObject.SetActive(false);
-
-            int idx = i;
-            btnProfile[idx].onClick.AddListener(()=> { OpenProfile(idx); });
         }
+        SetCharacterList();
 
         btnAll.onClick.AddListener(ShowAll);
         btnBookmark.onClick.AddListener(ShowBookmark);
@@ -65,6 +57,47 @@ public class UICharacterList : MonoBehaviour
         btnToList.onClick.AddListener(ToList);
 
         btnClose.onClick.AddListener(CloseCharacterList);
+    }
+
+
+    public void SetCharacterList()
+    {
+        CheckBookmark();
+
+        for (int i = 0; i < characterManager.Character.Length; i++)
+        {
+            int idx = i;
+
+            if (characterManager.Character[idx].getCharacter)
+            {
+                imgCharacter[i].sprite = Resources.Load<Sprite>($"Image/{characterManager.Character[i].characterName}");
+                txtProfile[i].text = $"{characterManager.Character[i].characterName}";
+                btnProfile[idx].onClick.RemoveAllListeners();
+                btnProfile[idx].onClick.AddListener(() => { OpenProfile(idx); });
+            }
+            else
+            {
+                imgCharacter[i].sprite = Resources.Load<Sprite>($"Image/lock");
+                txtProfile[i].text = $"???";
+                btnProfile[idx].onClick.AddListener(() => { Lock(idx); });
+            }
+        }
+    }
+
+    public void Lock(int num)
+    {
+        Debug.Log($"캐릭터 {num+1}의 정보를 열람할 수 없습니다");
+    }
+
+    public void CheckBookmark()
+    {
+        for (int i = 0; i < characterManager.Character.Length; i++)
+        {
+            if (characterManager.Character[i].isBookmark)
+                imgBookmark[i].gameObject.SetActive(true);
+            else
+                imgBookmark[i].gameObject.SetActive(false);
+        }
     }
 
     public void CloseCharacterList()
@@ -147,23 +180,27 @@ public class UICharacterList : MonoBehaviour
     {
         characterManager.Pick = num;
         Debug.Log($"대표 캐릭터: {characterManager.Character[num].characterName}");
+
+        if (curPick)
+        {
+            Destroy(curPick.gameObject);
+            curPick = null;
+        }
+
+        Object pickObj = Resources.Load($"GO3D/{characterManager.Character[characterManager.Pick].characterName}");
+        GameObject pickCharacter = (GameObject)Instantiate(pickObj, go.transform);
+        //pickCharacter.transform.SetParent(go.transform);
+
+        curPick = pickCharacter;
     }
+
+
     public void ToList()
     {
         UIProfile.SetActive(false);
         UIProfileList.SetActive(true);
 
-        for (int i = 0; i < btnProfile.Length; i++)
-        {
-            if (characterManager.Character[i].isBookmark)
-                imgBookmark[i].gameObject.SetActive(true);
-            else
-                imgBookmark[i].gameObject.SetActive(false);
-        }
+        CheckBookmark();
 
-    }
-
-    void Update()
-    {
     }
 }
