@@ -19,6 +19,9 @@ public class MR_TestScene : MonoBehaviour
     public Button btnContinue;
     public Button btnCloseGetRB;
 
+    public List<GameObject> rabbitList = new List<GameObject>();
+    GameObject curRabbit;
+    GameObject target;
 
     void Start()
     {
@@ -27,7 +30,12 @@ public class MR_TestScene : MonoBehaviour
 
     void Update()
     {
-        if (cube == null)
+        GetRabbitMode();
+    }
+
+        public void GetRabbitMode()
+    {
+        if (rabbitList == null)
             return;
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -46,6 +54,7 @@ public class MR_TestScene : MonoBehaviour
                     if (Physics.Raycast(ray, out hit))
                     {
                         Debug.Log(hit.transform.gameObject);
+                        target = hit.transform.gameObject;
                         UIPopRUGet.SetActive(true);
                     }
                 }
@@ -56,6 +65,8 @@ public class MR_TestScene : MonoBehaviour
     public void CloseRUGet()
     {
         UIPopRUGet.SetActive(false);
+
+        Destroy(target, 1f);
     }
 
     public void OpenGetRB()
@@ -67,5 +78,15 @@ public class MR_TestScene : MonoBehaviour
     public void CloseGetRB()
     {
         UIPopGetRB.SetActive(false);
+        Destroy(target);
     }
+
+    public void SpawnRabbit()
+    {
+        int rabbitIdx = Random.Range(0, rabbitList.Count);
+        
+                    //Instantiate 생성객체 ,            위치값 ,               회전값
+        curRabbit = Instantiate(rabbitList[rabbitIdx], new Vector3(0, 0, 0), Quaternion.Euler(new Vector3(0, 0, 0)));
+    }
+
 }
