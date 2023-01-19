@@ -23,6 +23,8 @@ public class CharacterManager : MonoBehaviour
 
     //public Dictionary<string, Character> characterList;
     public Character[] Character;
+    public int bookmark = 0;
+    public int Pick;
 
     //public int characterListIdx = 0;
 
@@ -38,13 +40,13 @@ public class CharacterManager : MonoBehaviour
         //characterList.Add("Åä³¢1", new Character("Åä³¢1", false));
         Character = new Character[]
             {
-                new Character("Åä³¢1", 600, false, 0),
-                new Character("Åä³¢2", 500, false, 0),
-                new Character("Åä³¢3", 200, false, 0),
-                new Character("Åä³¢4", 400, false, 0),
-                new Character("Åä³¢5", 800, false, 0),
-                new Character("Âý½ÒÅä³¢", 10, false, 0),
-                new Character("½ºÆä¼ÈÅä³¢", 5000, false, 0)
+                //  Character( ÀÌ¸§   °¡°Ý  get? ¼ö·® ºÏ¸¶Å©?)
+                new Character("Åä³¢1", 600, false, 0, false),
+                new Character("Åä³¢2", 500, false, 0, false),
+                new Character("Åä³¢3", 200, false, 0, false),
+                new Character("Åä³¢4", 400, false, 0, false),
+                new Character("Âý½ÒÅä³¢", 10, false, 0, false),
+                new Character("½ºÆä¼ÈÅä³¢", 5000, false, 0, false)
             };
     }
 }
