@@ -5338,6 +5338,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UICamMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 2762882517644126479, guid: 951c05763b297ef4e87957095f62e240,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2762882517644126569, guid: 951c05763b297ef4e87957095f62e240,
         type: 3}
       propertyPath: m_Pivot.x

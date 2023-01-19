@@ -33,7 +33,7 @@ public class MR_TestScene : MonoBehaviour
         GetRabbitMode();
     }
 
-        public void GetRabbitMode()
+    public void GetRabbitMode()
     {
         if (rabbitList == null)
             return;
@@ -88,5 +88,6 @@ public class MR_TestScene : MonoBehaviour
                     //Instantiate 생성객체 ,            위치값 ,               회전값
         curRabbit = Instantiate(rabbitList[rabbitIdx], new Vector3(0, 0, 0), Quaternion.Euler(new Vector3(0, 0, 0)));
     }
+
 
 }
