@@ -26,6 +26,9 @@ public class UICamMenu : MonoBehaviour
         btnChangeMode.onClick.AddListener(ChangeMode);
         btnOpenList.onClick.AddListener(OpenList);
         btnCloseList.onClick.AddListener(CloseList);
+
+        btnPreScene.onClick.AddListener(() => { ScenesManager.GetInstance().ChangeScene(Scene.Main); });
+
     }
 
     void Update()
