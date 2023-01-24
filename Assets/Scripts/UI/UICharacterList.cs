@@ -20,6 +20,7 @@ public class UICharacterList : MonoBehaviour
 
     //==
     // 메인 북마크 리스트에서 픽했을 때 메인에 반영 X
+    // 수정 고민 중인 코드: 209번줄 참고
     //==
 
 
@@ -202,6 +203,13 @@ public class UICharacterList : MonoBehaviour
     {
         if (characterManager.bookmark >= 3)
         {
+            if (characterManager.Pick == 100)
+            {
+                Debug.Log($"북마크가 가득 차 대표 캐릭터 설정이 불가능합니다. 현재 북마크 개수: {characterManager.bookmark}개");
+                // 이 코드 마지막으로 북마크한 친구 해제하는 거로 바꿀까 고민 중
+                return;
+            }
+
             Debug.Log($"북마크 최대 한도 초과 | 기존 대표 캐릭터 {characterManager.Character[characterManager.Pick].characterName}를 북마크 목록 및 대표 캐릭터 대상에서 제외합니다.");
             characterManager.Character[characterManager.Pick].isBookmark= false;
             characterManager.CountBookmark();
