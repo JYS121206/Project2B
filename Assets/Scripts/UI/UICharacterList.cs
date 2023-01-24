@@ -7,6 +7,22 @@ public class UICharacterList : MonoBehaviour
 {
     // UI프리팹 UICharacterList 적용되는 스크립트입니다.
 
+    // 캐릭터 획득시 도감에 반영 O
+
+    // 캐릭터 도감에서 대표 캐릭터를 픽했을 때 메인화면 캐릭터 오브젝트에 바뀐 대표 캐릭터 반영 O
+    // 도감에서 대표 캐릭터를 픽하면 자동으로 북마크 목록에 추가, 북마크 이미지 활성화(노란별) O
+    // 북마크가 2개 이하=> 기존 북마크 목록에 새로 픽한 캐릭터 추가 O
+    // 북마크가 3개 이상=> 기존 대표 캐릭터에서 북마크 제거 후 새로 픽한 캐릭터 추가 O
+    // 대표캐릭터는 북마크를 해제할 수 없도록 설정 O
+
+    //북마크 카운트 세는 방법을 바꿔야 할 것 같다=> 포문으로?
+    // ㄴ해결(포문) characterManager.CountBookmark();  O
+
+    //==
+    // 메인 북마크 리스트에서 픽했을 때 메인에 반영 X
+    //==
+
+
     public GameObject UIProfileList;
     public GameObject UIProfile;
     public Button btnClose;
@@ -34,6 +50,8 @@ public class UICharacterList : MonoBehaviour
 
     void Start()
     {
+        //UI 오픈할 때 초기화하는 법 생각해보기
+
         characterManager = CharacterManager.GetInstance();
         Debug.Log($"배열크기: {characterManager.Character.Length}");
 
@@ -57,6 +75,7 @@ public class UICharacterList : MonoBehaviour
         btnToList.onClick.AddListener(ToList);
 
         btnClose.onClick.AddListener(CloseCharacterList);
+        gameObject.SetActive(false);
     }
 
 
@@ -155,8 +174,11 @@ public class UICharacterList : MonoBehaviour
     {
         if (characterManager.Character[num].isBookmark)
         {
+            if (num == characterManager.Pick)
+                return;
+
             characterManager.Character[num].isBookmark = false;
-            characterManager.bookmark--;
+            characterManager.CountBookmark();
             Debug.Log($"현재 북마크 개수: {characterManager.bookmark}개");
             btnGetBookmark.GetComponent<Image>().sprite = Resources.Load<Sprite>($"Image/bookmark1");
         }
@@ -170,7 +192,7 @@ public class UICharacterList : MonoBehaviour
             }
 
             characterManager.Character[num].isBookmark = true;
-            characterManager.bookmark++;
+            characterManager.CountBookmark();
             Debug.Log($"현재 북마크 개수: {characterManager.bookmark}개");
             btnGetBookmark.GetComponent<Image>().sprite = Resources.Load<Sprite>($"Image/bookmark2");
         }
@@ -178,8 +200,19 @@ public class UICharacterList : MonoBehaviour
 
     public void PickThis(int num)
     {
+        if (characterManager.bookmark >= 3)
+        {
+            Debug.Log($"북마크 최대 한도 초과 | 기존 대표 캐릭터 {characterManager.Character[characterManager.Pick].characterName}를 북마크 목록 및 대표 캐릭터 대상에서 제외합니다.");
+            characterManager.Character[characterManager.Pick].isBookmark= false;
+            characterManager.CountBookmark();
+        }
+
         characterManager.Pick = num;
         Debug.Log($"대표 캐릭터: {characterManager.Character[num].characterName}");
+        characterManager.Character[num].isBookmark = true;
+        btnGetBookmark.GetComponent<Image>().sprite = Resources.Load<Sprite>($"Image/bookmark2");
+        Debug.Log($"현재 북마크 개수: {characterManager.bookmark}개");
+        characterManager.CountBookmark();
 
         if (curPick)
         {
@@ -203,4 +236,5 @@ public class UICharacterList : MonoBehaviour
         CheckBookmark();
 
     }
+
 }

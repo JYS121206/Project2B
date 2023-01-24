@@ -586,6 +586,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 185627713}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &185627715 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5010011803438147974, guid: 64a68956c07e71442af3b429b51cb472,
+    type: 3}
+  m_PrefabInstance: {fileID: 185627713}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185627714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eaf3751335fe79408bd3cc9d59a584d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &221782853
 GameObject:
   m_ObjectHideFlags: 0
@@ -979,6 +991,11 @@ PrefabInstance:
       propertyPath: toCharacterList
       value: 
       objectReference: {fileID: 740661023}
+    - target: {fileID: 6186035659306351947, guid: 5826a6e1a1959664c9826a68360c63ab,
+        type: 3}
+      propertyPath: uICharacterList
+      value: 
+      objectReference: {fileID: 185627715}
     - target: {fileID: 6186035659306351947, guid: 5826a6e1a1959664c9826a68360c63ab,
         type: 3}
       propertyPath: btnBookmark.Array.size

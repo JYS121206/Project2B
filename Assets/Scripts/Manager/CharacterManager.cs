@@ -24,7 +24,7 @@ public class CharacterManager : MonoBehaviour
     //public Dictionary<string, Character> characterList;
     public Character[] Character;
     public int bookmark = 0;
-    public int Pick;
+    public int Pick = 100;
 
     //public int characterListIdx = 0;
 
@@ -48,5 +48,16 @@ public class CharacterManager : MonoBehaviour
                 new Character("Âı½ÒÅä³¢", 10, false, 0, false),
                 new Character("½ºÆä¼ÈÅä³¢", 5000, false, 0, false)
             };
+    }
+
+    public void CountBookmark()
+    {
+        bookmark = 0;
+
+        for (int i = 0; i < Character.Length; i++)
+        {
+            if(Character[i].isBookmark)
+                bookmark++;
+        }
     }
 }

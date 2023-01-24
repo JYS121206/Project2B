@@ -37,6 +37,8 @@ public class UIMainMenu : MonoBehaviour
     public int testNum;
     public Button btnTest;
 
+    public UICharacterList uICharacterList;
+
     void Start()
     {
 
@@ -51,7 +53,6 @@ public class UIMainMenu : MonoBehaviour
         isOpen = false;
         MenuGroup.SetActive(false);
         ListGroup.SetActive(false);
-        UICharacterList.gameObject.SetActive(false);
 
         //버튼에 함수 추가
         btnOpenMenu.onClick.AddListener(OpenMenu);
@@ -68,6 +69,18 @@ public class UIMainMenu : MonoBehaviour
     {
         characterManager.Character[num].getCharacter = true;
         Debug.Log($"{characterManager.Character[num].characterName}을 획득했습니다.");
+
+        //
+
+        characterManager.Character[1].getCharacter = true;
+
+        characterManager.Character[2].getCharacter = true;
+
+        characterManager.Character[3].getCharacter = true;
+
+        characterManager.Character[4].getCharacter = true;
+
+        characterManager.Character[5].getCharacter = true;
     }
 
     /// <summary>
@@ -174,6 +187,8 @@ public class UIMainMenu : MonoBehaviour
     public void OpenCharacterList()
     {
         UICharacterList.gameObject.SetActive(true);
+        uICharacterList.SetCharacterList();
+
         CloseList();
     }
 
