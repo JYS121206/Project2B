@@ -21,10 +21,34 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-    public int Coin = 100; //플레이어 재화
+    public float curCoin = 0; //플레이어 재화
+    public float coin = 100;
+    public float fullExp = 40;
+    public float curExp = 0;
+    public int hitCount = 0;
 
     void Start()
     {
-        
+        curCoin = 0; 
+        fullExp = 40; 
+        curExp = 0;
+    }
+    public void GetCoin(UIMainMenu uIMainMenu)
+    {
+
+        if (curExp >= fullExp)
+        {
+            curCoin += coin;
+            Debug.Log($"Coin +{coin} !");
+            fullExp *= 1.3f;
+            coin *= 1.1f;
+            curExp = 0;
+            hitCount = 0;
+
+            uIMainMenu.SetCoin();
+        }
+        curExp++;
+        hitCount++;
+        Debug.Log($"{hitCount}번째 클릭!");
     }
 }

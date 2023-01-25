@@ -41,8 +41,7 @@ public class UIMainMenu : MonoBehaviour
     {
 
         //GameManager의 Coin 불러오기
-        myCoin = GameManager.GetInstance().Coin;
-        txtCoin.text = $"x {myCoin}";
+        SetCoin();
 
         //CharacterManager 할당
         characterManager = CharacterManager.GetInstance();
@@ -61,6 +60,12 @@ public class UIMainMenu : MonoBehaviour
         toCr.onClick.AddListener(OpenCharacterList);
 
         btnTest.onClick.AddListener(() => { TestGetCharacter(testNum); });
+    }
+
+    public void SetCoin()
+    {
+        myCoin = (int)GameManager.GetInstance().curCoin;
+        txtCoin.text = $"x {myCoin}";
     }
 
     public void TestGetCharacter(int num)

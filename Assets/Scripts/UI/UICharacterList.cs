@@ -52,10 +52,17 @@ public class UICharacterList : MonoBehaviour
     public GameObject curPick;
 
     int lastBmk;
+    bool showBmk = false;
+
+    bool fstPick = false;
+
+    public UITab uiTab;
 
     void Start()
     {
         //UI 오픈할 때 초기화하는 법 생각해보기
+        showBmk = false;
+        fstPick = false;
 
         characterManager = CharacterManager.GetInstance();
         Debug.Log($"배열크기: {characterManager.Character.Length}");
@@ -133,6 +140,7 @@ public class UICharacterList : MonoBehaviour
 
     public void ShowAll()
     {
+        showBmk = false;
         for (int i = 0; i < btnProfile.Length; i++)
         {
             btnProfile[i].gameObject.SetActive(true);
@@ -141,6 +149,7 @@ public class UICharacterList : MonoBehaviour
 
     public void ShowBookmark()
     {
+        showBmk = true;
         for (int i = 0; i < btnProfile.Length; i++)
         {
             if(characterManager.Character[i].isBookmark)
@@ -208,13 +217,14 @@ public class UICharacterList : MonoBehaviour
     {
         if (characterManager.bookmark >= 3)
         {
-            if (characterManager.Pick == 100)
+            if (!fstPick)
             {
                 Debug.Log($"북마크 최대 한도 초과 | 직전 북마크 캐릭터를 북마크 목록에서 제외합니다");
                 characterManager.Character[lastBmk].isBookmark = false;
                 characterManager.CountBookmark();
-                Debug.Log($"현재 북마크 개수: {characterManager.bookmark}개");
-                // 이 코드 마지막으로 북마크한 친구 해제하는 거로 바꿀까 고민 중
+                fstPick = true;
+                uiTab.gameObject.SetActive(true);
+                //게임매니저.겟어쩌구().탭어쩌구();
             }
             else
             {
@@ -227,7 +237,12 @@ public class UICharacterList : MonoBehaviour
             }
         }
 
-        Debug.Log($"SetPick 실행");
+        if (!fstPick)
+        {
+            fstPick = true;
+            uiTab.gameObject.SetActive(true);
+        }
+
         SetPick(num);
         characterManager.Character[num].isBookmark = true;
         characterManager.CountBookmark();
@@ -262,6 +277,8 @@ public class UICharacterList : MonoBehaviour
 
         CheckBookmark();
 
+        if(showBmk)
+            ShowBookmark();
     }
 
 }
