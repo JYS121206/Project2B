@@ -22,15 +22,15 @@ public class GameManager : MonoBehaviour
     #endregion
 
     public float curCoin = 0; //플레이어 재화
-    public float coin = 100;
-    public float fullExp = 40;
+    public float coin = 30;
+    public float fullExp = 30;
     public float curExp = 0;
     public int hitCount = 0;
 
     void Start()
     {
         curCoin = 0; 
-        fullExp = 40; 
+        fullExp = 30; 
         curExp = 0;
     }
     public void GetCoin(UIMainMenu uIMainMenu)
@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
         {
             curCoin += coin;
             Debug.Log($"Coin +{coin} !");
-            fullExp *= 1.3f;
+            fullExp = fullExp * 1.1f;
             coin *= 1.1f;
             curExp = 0;
             hitCount = 0;

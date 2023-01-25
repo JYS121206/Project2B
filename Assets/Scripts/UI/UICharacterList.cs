@@ -219,12 +219,13 @@ public class UICharacterList : MonoBehaviour
         {
             if (!fstPick)
             {
-                Debug.Log($"북마크 최대 한도 초과 | 직전 북마크 캐릭터를 북마크 목록에서 제외합니다");
-                characterManager.Character[lastBmk].isBookmark = false;
-                characterManager.CountBookmark();
-                fstPick = true;
-                uiTab.gameObject.SetActive(true);
-                //게임매니저.겟어쩌구().탭어쩌구();
+                if (!characterManager.Character[num].isBookmark)
+                {
+                    Debug.Log($"북마크 최대 한도 초과 | 직전 북마크 캐릭터를 북마크 목록에서 제외합니다");
+                    characterManager.Character[lastBmk].isBookmark = false;
+                    characterManager.CountBookmark();
+                }
+
             }
             else
             {
