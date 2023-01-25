@@ -32,8 +32,6 @@ public class UIMainMenu : MonoBehaviour
 
     CharacterManager characterManager;
 
-    int idx;
-
     public int testNum;
     public Button btnTest;
 
@@ -70,7 +68,7 @@ public class UIMainMenu : MonoBehaviour
         characterManager.Character[num].getCharacter = true;
         Debug.Log($"{characterManager.Character[num].characterName}을 획득했습니다.");
 
-        //
+        //////// 수집 테스트 ////////
 
         characterManager.Character[1].getCharacter = true;
 
@@ -128,9 +126,9 @@ public class UIMainMenu : MonoBehaviour
         {
             if (characterManager.Character[i].isBookmark)
             {
-                idx = i;
+                int idx = i;
                 btnBookmark[x].GetComponent<Image>().sprite = Resources.Load<Sprite>($"Image/{characterManager.Character[i].characterName}");
-                btnBookmark[x].onClick.AddListener(() => { PickUp(idx); });
+                btnBookmark[x].onClick.AddListener(() => { uICharacterList.SetPick(idx); });
                 Debug.Log($"btnBookmark{x}번에 PickUp{idx} 저장");
                 x++;
             }

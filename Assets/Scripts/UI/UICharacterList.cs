@@ -18,9 +18,11 @@ public class UICharacterList : MonoBehaviour
     //북마크 카운트 세는 방법을 바꿔야 할 것 같다=> 포문으로?
     // ㄴ해결(포문) characterManager.CountBookmark();  O
 
+    // 메인 북마크 리스트에서 픽했을 때 메인에 반영 O
+    // 수정 고민 중인 코드: 209번줄 참고  O
+
     //==
-    // 메인 북마크 리스트에서 픽했을 때 메인에 반영 X
-    // 수정 고민 중인 코드: 209번줄 참고
+    // 도감의 북마크만 보기 페이지 => 북마크 해제하고 리스트로 돌아갔을 때 UI 초기화 X
     //==
 
 
@@ -48,6 +50,8 @@ public class UICharacterList : MonoBehaviour
 
     public GameObject go;
     public GameObject curPick;
+
+    int lastBmk;
 
     void Start()
     {
@@ -193,6 +197,7 @@ public class UICharacterList : MonoBehaviour
             }
 
             characterManager.Character[num].isBookmark = true;
+            lastBmk = num;
             characterManager.CountBookmark();
             Debug.Log($"현재 북마크 개수: {characterManager.bookmark}개");
             btnGetBookmark.GetComponent<Image>().sprite = Resources.Load<Sprite>($"Image/bookmark2");
@@ -205,22 +210,36 @@ public class UICharacterList : MonoBehaviour
         {
             if (characterManager.Pick == 100)
             {
-                Debug.Log($"북마크가 가득 차 대표 캐릭터 설정이 불가능합니다. 현재 북마크 개수: {characterManager.bookmark}개");
+                Debug.Log($"북마크 최대 한도 초과 | 직전 북마크 캐릭터를 북마크 목록에서 제외합니다");
+                characterManager.Character[lastBmk].isBookmark = false;
+                characterManager.CountBookmark();
+                Debug.Log($"현재 북마크 개수: {characterManager.bookmark}개");
                 // 이 코드 마지막으로 북마크한 친구 해제하는 거로 바꿀까 고민 중
-                return;
             }
-
-            Debug.Log($"북마크 최대 한도 초과 | 기존 대표 캐릭터 {characterManager.Character[characterManager.Pick].characterName}를 북마크 목록 및 대표 캐릭터 대상에서 제외합니다.");
-            characterManager.Character[characterManager.Pick].isBookmark= false;
-            characterManager.CountBookmark();
+            else
+            {
+                if (!characterManager.Character[num].isBookmark)
+                {
+                    Debug.Log($"북마크 최대 한도 초과 | 기존 대표 캐릭터 {characterManager.Character[characterManager.Pick].characterName}를 북마크 목록 및 대표 캐릭터 대상에서 제외합니다.");
+                    characterManager.Character[characterManager.Pick].isBookmark = false;
+                    characterManager.CountBookmark();
+                }
+            }
         }
 
-        characterManager.Pick = num;
-        Debug.Log($"대표 캐릭터: {characterManager.Character[num].characterName}");
+        Debug.Log($"SetPick 실행");
+        SetPick(num);
         characterManager.Character[num].isBookmark = true;
+        characterManager.CountBookmark();
         btnGetBookmark.GetComponent<Image>().sprite = Resources.Load<Sprite>($"Image/bookmark2");
         Debug.Log($"현재 북마크 개수: {characterManager.bookmark}개");
-        characterManager.CountBookmark();
+
+    }
+
+    public void SetPick(int num)
+    {
+        characterManager.Pick = num;
+        Debug.Log($"대표 캐릭터: {characterManager.Character[num].characterName}");
 
         if (curPick)
         {
