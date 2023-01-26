@@ -169,7 +169,7 @@ public class UICharacterList1 : MonoBehaviour
 
     public void SetProfile(int num)
     {
-        imgProfile.sprite = Resources.Load<Sprite>($"Image/{characterManager.Character[num].characterName}");
+        imgProfile.sprite = Resources.Load<Sprite>($"Image/NewFolder/{characterManager.Character[num].characterName}");
         txtName.text = $"{characterManager.Character[num].characterName}";
         txtAbout.text = $"캐릭터 설정 몰라";
 
