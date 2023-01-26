@@ -78,10 +78,6 @@ public class UIMainMenu1 : MonoBehaviour
         characterManager.Character[3].getCharacter = true;
         characterManager.Character[4].getCharacter = true;
         characterManager.Character[5].getCharacter = true;
-        characterManager.Character[6].getCharacter = true;
-        characterManager.Character[7].getCharacter = true;
-        characterManager.Character[8].getCharacter = true;
-        characterManager.Character[9].getCharacter = true;
 
         Debug.Log($"캐릭터를 모두 획득했습니다.");
     }
@@ -116,7 +112,6 @@ public class UIMainMenu1 : MonoBehaviour
 
         ListGroup.SetActive(true);
         btnOpenList.gameObject.SetActive(false);
-        btnRoom.gameObject.SetActive(false);
 
         //북마크 이미지, 버튼 초기화
         for (int i = 0; i < btnBookmark.Length; i++)
@@ -184,7 +179,6 @@ public class UIMainMenu1 : MonoBehaviour
 
         ListGroup.SetActive(false);
         btnOpenList.gameObject.SetActive(true);
-        btnRoom.gameObject.SetActive(true);
     }
 
     public void OpenCharacterList()

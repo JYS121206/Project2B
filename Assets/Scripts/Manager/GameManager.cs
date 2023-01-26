@@ -51,4 +51,22 @@ public class GameManager : MonoBehaviour
         hitCount++;
         Debug.Log($"{hitCount}번째 클릭!");
     }
+    public void GetCoin1(UIMainMenu1 uIMainMenu)
+    {
+
+        if (curExp >= fullExp)
+        {
+            curCoin += coin;
+            Debug.Log($"Coin +{coin} !");
+            fullExp = fullExp * 1.1f;
+            coin *= 1.1f;
+            curExp = 0;
+            hitCount = 0;
+
+            uIMainMenu.SetCoin();
+        }
+        curExp++;
+        hitCount++;
+        Debug.Log($"{hitCount}번째 클릭!");
+    }
 }

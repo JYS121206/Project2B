@@ -238,12 +238,6 @@ public class UICharacterList1 : MonoBehaviour
             }
         }
 
-        if (!fstPick)
-        {
-            fstPick = true;
-            uiTab.gameObject.SetActive(true);
-        }
-
         SetPick(num);
         characterManager.Character[num].isBookmark = true;
         characterManager.CountBookmark();
@@ -254,6 +248,12 @@ public class UICharacterList1 : MonoBehaviour
 
     public void SetPick(int num)
     {
+        if (!fstPick)
+        {
+            fstPick = true;
+            uiTab.gameObject.SetActive(true);
+        }
+
         characterManager.Pick = num;
         Debug.Log($"대표 캐릭터: {characterManager.Character[num].characterName}");
 

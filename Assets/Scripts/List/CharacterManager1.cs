@@ -41,12 +41,8 @@ public class CharacterManager1 : MonoBehaviour
         Character.Add(new Character("Åä³¢1", 600, false, 0, false));
         Character.Add(new Character("Åä³¢2", 500, false, 0, false));
         Character.Add(new Character("Åä³¢3", 200, false, 0, false));
-        Character.Add(new Character("Åä³¢2", 56, false, 0, false));
-        Character.Add(new Character("Åä³¢2", 7, false, 0, false));
         Character.Add(new Character("Åä³¢4", 400, false, 0, false));
-        Character.Add(new Character("Åä³¢4", 5, false, 0, false));
         Character.Add(new Character("Âý½ÒÅä³¢", 10, false, 0, false));
-        Character.Add(new Character("Âý½ÒÅä³¢", 20, false, 0, false));
         Character.Add(new Character("½ºÆä¼ÈÅä³¢", 5000, false, 0, false));
     }
 
