@@ -4,39 +4,61 @@ using UnityEngine;
 
 public class UIMenu : MonoBehaviour
 {
+    UIMainMenu uIMainMenu;
     OrnamentObjManager ornamentObjManager;
-    static int rand = 2; //Random.Range(0, OrnamentObjManager.GetInstance()._ornementList.Count);
-    void Start()
+
+    private int idx;
+    public void Start()
     {
-        //int rand = OrnamentObjManager.GetInstance()._ornamentList.Count;
-
-        Debug.Log(OrnamentObjManager.GetInstance()._ornamentList.Count);
-
-        if (OrnamentObjManager.GetInstance()._ornamentList[rand].gameObject.activeSelf == true)
+        Debug.Log(OrnamentObjManager.GetInstance()._ornamentActivePickList.Count);
+        GetOrnament();
+        OrnamentUIManager.GetInstance().goMain.onClick.AddListener(GoMain);
+        OrnamentUIManager.GetInstance().goMain.onClick.AddListener(GoMain);
+        //uIMainMenu.btnGoYSJ.onClick.AddListener(GoOrnamentBook);
+        for (int i = 0; i <= OrnamentObjManager.GetInstance()._ornamentList.Count - 1; i++)
         {
-            //OrnamentManager.GetInstance()._ornament[rand].getOrnament = true;
-            OrnamentUIManager.GetInstance()._ornamentBtnList[rand].gameObject.SetActive(true);
+            idx = i;
+            OrnamentUIManager.GetInstance()._ornamentBtnList[idx].onClick.AddListener(OrnamentInfoOpen);
+            OrnamentUIManager.GetInstance()._ornamentInfoCloseBtnList[idx].onClick.AddListener(OrnamentInfoClose);
+            OrnamentUIManager.GetInstance()._ornamentInfoPickBtnList[idx].onClick.AddListener(OrnamentInfoPick);
         }
 
-        OrnamentUIManager.GetInstance()._ornamentBtnList[rand].onClick.AddListener(OrnamentInfoOpen);
 
-        OrnamentUIManager.GetInstance()._ornamentInfoCloseBtnList[rand].onClick.AddListener(OrnamentInfoClose);
 
-        OrnamentUIManager.GetInstance()._ornamentInfoPickBtnList[rand].onClick.AddListener(OrnamentInfoPick);
     }
 
+    public void GoOrnamentBook()
+    {
+        ScenesManager.GetInstance().ChangeScene(Scene.YSJ);
+    }
+    public void GoMain()
+    {
+
+        ScenesManager.GetInstance().ChangeScene(Scene.Main);
+    }
+
+    public void GetOrnament()
+    {
+        for (int i = 0; i <= OrnamentObjManager.GetInstance()._ornamentList.Count - 1; i++)
+            if (OrnamentObjManager.GetInstance()._ornamentList[i].gameObject.activeSelf == true)
+            {
+                OrnamentUIManager.GetInstance()._ornamentBtnList[i].gameObject.SetActive(true);
+            }
+    }
     public void OrnamentInfoOpen()
     {
-        OrnamentUIManager.GetInstance()._ornamentInfoList[rand].gameObject.SetActive(true);
+        OrnamentUIManager.GetInstance()._ornamentInfoList[idx].gameObject.SetActive(true);
     }
 
     public void OrnamentInfoClose()
     {
-        OrnamentUIManager.GetInstance()._ornamentInfoList[rand].gameObject.SetActive(false);
+        OrnamentUIManager.GetInstance()._ornamentInfoList[idx].gameObject.SetActive(false);
     }
 
     public void OrnamentInfoPick()
     {
-        OrnamentObjManager.GetInstance()._ornamentActivePickList[rand].gameObject.SetActive(true);
+        OrnamentObjManager.GetInstance()._ornamentActivePickList[idx].gameObject.SetActive(true);
     }
+
+    
 }

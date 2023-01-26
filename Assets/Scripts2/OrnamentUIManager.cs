@@ -24,12 +24,11 @@ public class OrnamentUIManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        DontDestroyOnLoad(gameObject);
+        
     }
     #endregion
-    [SerializeField]
-    public Button fdasfasd;
-    public Button fdasfasd2;
+
+    public Button goMain;
 
     public List<Button> _ornamentBtnList = new List<Button>();
 

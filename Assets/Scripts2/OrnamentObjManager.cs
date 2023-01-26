@@ -19,15 +19,21 @@ public class OrnamentObjManager : MonoBehaviour
 
         return instance;
     }
-
     private void Awake()
     {
         instance = this;
-        DontDestroyOnLoad(gameObject);
+        
     }
     #endregion
 
     public List<GameObject> _ornamentList = new List<GameObject>();
 
     public List<GameObject> _ornamentActivePickList = new List<GameObject>();
+
+
+
+    public void OrnamentList()
+    {
+        List<GameObject> _ornamentList = new List<GameObject>();
+    }
 }

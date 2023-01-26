@@ -37,6 +37,7 @@ public class UIMainMenu : MonoBehaviour
 
     public UICharacterList uICharacterList;
 
+    public Button btnGoYSJ;
     void Start()
     {
 
