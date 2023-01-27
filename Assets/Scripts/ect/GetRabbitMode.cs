@@ -33,9 +33,6 @@ public class GetRabbitMode : MonoBehaviour
 
     public void GetRabbit()
     {
-        if (rabbitList == null)
-            return;
-
         if (Input.touchCount > 0)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
