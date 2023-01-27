@@ -67,6 +67,8 @@ public class GameManager : MonoBehaviour
         }
         curExp++;
         hitCount++;
+        var fullHeart = 100 / fullExp * curExp;
+        uIMainMenu.FullHeart(fullHeart);
         Debug.Log($"{hitCount}번째 클릭!");
     }
 }

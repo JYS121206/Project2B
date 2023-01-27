@@ -26,6 +26,7 @@ public class UIMainMenu1 : MonoBehaviour
 
     bool isOpen;
     int myCoin;
+    public Image fullHeart;
 
     public GameObject go;
     public GameObject curPick;
@@ -37,8 +38,14 @@ public class UIMainMenu1 : MonoBehaviour
 
     public UICharacterList1 uICharacterList;
 
+    public void FullHeart(float curExp)
+    {
+        fullHeart.rectTransform.sizeDelta = new Vector2(100, curExp);
+    }
+
     void Start()
     {
+        fullHeart.rectTransform.sizeDelta = new Vector2(100, 0);
 
         //GameManager의 Coin 불러오기
         SetCoin();

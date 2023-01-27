@@ -54,9 +54,7 @@ public class UICharacterList1 : MonoBehaviour
     int lastBmk;
     bool showBmk = false;
 
-    bool fstPick = false;
-
-    public UITab uiTab;
+    public bool fstPick = false;
 
     void Start()
     {
@@ -251,7 +249,7 @@ public class UICharacterList1 : MonoBehaviour
         if (!fstPick)
         {
             fstPick = true;
-            uiTab.gameObject.SetActive(true);
+            //uiTab.gameObject.SetActive(true);
         }
 
         characterManager.Pick = num;
