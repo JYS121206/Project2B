@@ -16,16 +16,6 @@ MonoBehaviour:
   m_GuidHigh: 14241880328153937030
   m_Images:
   - m_SerializedGuid:
-      m_GuidLow: 5507474595930430498
-      m_GuidHigh: 12840899401023372696
-    m_SerializedTextureGuid:
-      m_GuidLow: 15272846800266146386
-      m_GuidHigh: 670528181295791928
-    m_Size: {x: 0.10051948, y: 0.1}
-    m_SpecifySize: 1
-    m_Name: TestQR
-    m_Texture: {fileID: 2800000, guid: eed332520d3ed3f4383f060ad4314e09, type: 3}
-  - m_SerializedGuid:
       m_GuidLow: 5395689442856927426
       m_GuidHigh: 796593784710130601
     m_SerializedTextureGuid:

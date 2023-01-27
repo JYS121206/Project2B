@@ -28,7 +28,7 @@ public class GetRabbitMode : MonoBehaviour
 
     void Update()
     {
-        
+        GetRabbit();
     }
 
     public void GetRabbit()
