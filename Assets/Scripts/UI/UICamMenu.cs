@@ -13,6 +13,8 @@ public class UICamMenu : MonoBehaviour
     public Button btnOpenList;
     public Button btnCloseList;
     public GameObject ListGroup;
+    public GameObject getRabbitMode;
+    public GameObject setRabbitMode;
 
     bool camMode;
 
@@ -22,6 +24,7 @@ public class UICamMenu : MonoBehaviour
         btnPrintSc.gameObject.SetActive(false);
         ListGroup.SetActive(false);
         btnOpenList.gameObject.SetActive(false);
+        setRabbitMode.SetActive(false);
 
         btnChangeMode.onClick.AddListener(ChangeMode);
         btnOpenList.onClick.AddListener(OpenList);
@@ -47,6 +50,7 @@ public class UICamMenu : MonoBehaviour
             ListGroup.SetActive(false);
             btnOpenList.gameObject.SetActive(false);
             camMode = false;
+
         }
         else
         {

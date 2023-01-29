@@ -8,7 +8,7 @@ public class MR_TestScene : MonoBehaviour
 {
     public GameObject UIPopRUGet;
     public GameObject UIPopGetRB;
-    
+
     public GameObject cube;
 
     public Button btnGet;
@@ -20,12 +20,15 @@ public class MR_TestScene : MonoBehaviour
     public Button btnCloseGetRB;
 
     public List<GameObject> rabbitList = new List<GameObject>();
+
     GameObject curRabbit;
     GameObject target;
 
+    CharacterManager1 characterManagerT;
+
     void Start()
     {
-
+        characterManagerT = CharacterManager1.GetInstance();
     }
 
     void Update()
@@ -84,10 +87,13 @@ public class MR_TestScene : MonoBehaviour
     public void SpawnRabbit()
     {
         int rabbitIdx = Random.Range(0, rabbitList.Count);
-        
-                    //Instantiate 생성객체 ,            위치값 ,               회전값
+
+        //Instantiate 생성객체 ,            위치값 ,               회전값
         curRabbit = Instantiate(rabbitList[rabbitIdx], new Vector3(0, 0, 0), Quaternion.Euler(new Vector3(0, 0, 0)));
     }
 
-
+    public void GetRabbitTest(int i)
+    {
+        characterManagerT.Character[i].getCharacter = true;
+    }
 }
