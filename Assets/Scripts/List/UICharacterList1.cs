@@ -58,11 +58,15 @@ public class UICharacterList1 : MonoBehaviour
 
     void Start()
     {
+        characterManager = CharacterManager1.GetInstance();
         //UI 오픈할 때 초기화하는 법 생각해보기
         showBmk = false;
-        fstPick = false;
 
-        characterManager = CharacterManager1.GetInstance();
+        if (characterManager.Pick >= 100)
+            characterManager.Pick1st = false;
+        else
+            characterManager.Pick1st = true;
+
         Debug.Log($"배열크기: {characterManager.Character.Count}");
 
         btnProfile = new Button[characterManager.Character.Count];
@@ -215,7 +219,7 @@ public class UICharacterList1 : MonoBehaviour
     {
         if (characterManager.bookmark >= 3)
         {
-            if (!fstPick)
+            if (!characterManager.Pick1st)
             {
                 if (!characterManager.Character[num].isBookmark)
                 {
@@ -246,9 +250,11 @@ public class UICharacterList1 : MonoBehaviour
 
     public void SetPick(int num)
     {
-        if (!fstPick)
+        if (!characterManager.Pick1st)
         {
-            fstPick = true;
+            characterManager.Pick1st = true;
+
+            Debug.Log($"지금 대표 캐릭터 있나?: {characterManager.Pick1st}");
             //uiTab.gameObject.SetActive(true);
         }
 

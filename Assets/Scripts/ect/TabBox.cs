@@ -14,7 +14,7 @@ public class TabBox : MonoBehaviour
 
     void Update()
     {
-        if (uiCharacterList1.fstPick)
+        if (CharacterManager1.GetInstance().Pick1st)
         {
             TabTab();
         }

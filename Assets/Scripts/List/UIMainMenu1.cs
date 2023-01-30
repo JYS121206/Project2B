@@ -19,6 +19,7 @@ public class UIMainMenu1 : MonoBehaviour
 
     public Button toCam;
     public Button toCr;
+    public Button btnToShop;
     public Button toCharacterList;
     public GameObject UICharacterList;
 
@@ -38,6 +39,8 @@ public class UIMainMenu1 : MonoBehaviour
 
     public UICharacterList1 uICharacterList;
 
+    UIMainMenu1 uIMainMenu1;
+
     public void FullHeart(float curExp)
     {
         fullHeart.rectTransform.sizeDelta = new Vector2(100, curExp);
@@ -45,13 +48,25 @@ public class UIMainMenu1 : MonoBehaviour
 
     void Start()
     {
-        fullHeart.rectTransform.sizeDelta = new Vector2(100, 0);
+        //CharacterManager 할당
+        characterManager = CharacterManager1.GetInstance();
+
+        uIMainMenu1 = this;
+
+
+        Debug.Log($"지금 대표 캐릭터 있나?: {characterManager.Pick1st} | {characterManager.Pick}");
+
+        if (characterManager.Pick1st)
+        {
+            uICharacterList.SetPick(characterManager.Pick);
+            Debug.Log($"대표 캐릭터 있으면 꺼내기 | {characterManager.Pick}번 캐릭터 끄내기");
+        }
+
+        GameManager.GetInstance().SetHeart(uIMainMenu1);
 
         //GameManager의 Coin 불러오기
         SetCoin();
 
-        //CharacterManager 할당
-        characterManager = CharacterManager1.GetInstance();
 
         //UI세팅 초기화
         isOpen = false;
@@ -63,6 +78,7 @@ public class UIMainMenu1 : MonoBehaviour
         btnOpenList.onClick.AddListener(OpenList);
         btnCloseList.onClick.AddListener(CloseList);
         toCam.onClick.AddListener(() => { ScenesManager.GetInstance().ChangeScene(Scene.CamScene); });
+        btnToShop.onClick.AddListener(() => { ScenesManager.GetInstance().ChangeScene(Scene.Shop); });
         toCharacterList.onClick.AddListener(OpenCharacterList);
         toCr.onClick.AddListener(OpenCharacterList);
 

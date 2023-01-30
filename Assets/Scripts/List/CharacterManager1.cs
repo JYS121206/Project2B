@@ -26,6 +26,9 @@ public class CharacterManager1 : MonoBehaviour
     public int bookmark = 0;
     public int Pick = 100;
 
+    public bool fstPick;
+    public bool Pick1st;
+
     //public int characterListIdx = 0;
 
     private void Awake()

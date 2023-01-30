@@ -71,4 +71,10 @@ public class GameManager : MonoBehaviour
         uIMainMenu.FullHeart(fullHeart);
         Debug.Log($"{hitCount}번째 클릭!");
     }
+
+    public void SetHeart(UIMainMenu1 uIMainMenu)
+    {
+        var fullHeart = 100 / fullExp * curExp;
+        uIMainMenu.FullHeart(fullHeart);
+    }
 }

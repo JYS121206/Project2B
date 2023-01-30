@@ -6,9 +6,11 @@ using UnityEngine.SceneManagement;
 public enum Scene
 {
     Main,
+    Main1,
     CamScene,
     YSJ,
-    CharacterList
+    CharacterList,
+    Shop
 }
 
 public class ScenesManager : MonoBehaviour
