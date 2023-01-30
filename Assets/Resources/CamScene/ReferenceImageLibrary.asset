@@ -12,36 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 848409ee8ba454f42a5ddff137688a27, type: 3}
   m_Name: ReferenceImageLibrary
   m_EditorClassIdentifier: 
-  m_GuidLow: 4922683690483249499
-  m_GuidHigh: 14241880328153937030
+  m_GuidLow: 5692726263703889560
+  m_GuidHigh: 17754434976520454561
   m_Images:
   - m_SerializedGuid:
-      m_GuidLow: 5395689442856927426
-      m_GuidHigh: 796593784710130601
+      m_GuidLow: 4689876571438634557
+      m_GuidHigh: 416472619653190823
     m_SerializedTextureGuid:
-      m_GuidLow: 12714849473155687490
-      m_GuidHigh: 5886912906683010457
+      m_GuidLow: 861418661627152855
+      m_GuidHigh: 3727981464827742536
     m_Size: {x: 0.1, y: 0.1}
     m_SpecifySize: 1
-    m_Name: Character_Black
-    m_Texture: {fileID: 2800000, guid: cc01e442383ab07499cd80321984b251, type: 3}
-  - m_SerializedGuid:
-      m_GuidLow: 4863564361565063596
-      m_GuidHigh: 5023624336381857689
-    m_SerializedTextureGuid:
-      m_GuidLow: 17164396188940918149
-      m_GuidHigh: 13344789522213722504
-    m_Size: {x: 0.1, y: 0.1}
-    m_SpecifySize: 1
-    m_Name: Character_Red
-    m_Texture: {fileID: 2800000, guid: 99e45d852f64ee348859e7e15d3732b9, type: 3}
-  - m_SerializedGuid:
-      m_GuidLow: 5595155821827409712
-      m_GuidHigh: 16127212458730192562
-    m_SerializedTextureGuid:
-      m_GuidLow: 18389541549467483052
-      m_GuidHigh: 16550181109362518283
-    m_Size: {x: 0.1, y: 0.1}
-    m_SpecifySize: 1
-    m_Name: Book
-    m_Texture: {fileID: 2800000, guid: 764bbbacc69bff340be9ee47080eaee5, type: 3}
+    m_Name: "\uCC39\uC300\uD1A0\uB07C 1"
+    m_Texture: {fileID: 0}

@@ -21,6 +21,10 @@ public class GetRabbitMode : MonoBehaviour
     GameObject curRabbit;
     GameObject target;
 
+    CharacterManager1 characterManager;
+
+    public UICharacterList1 UICharacterList;
+
     void Start()
     {
         
@@ -28,10 +32,10 @@ public class GetRabbitMode : MonoBehaviour
 
     void Update()
     {
-        GetRabbit();
+        TouchEvent();
     }
 
-    public void GetRabbit()
+    public void TouchEvent()
     {
         if (Input.touchCount > 0)
         {
@@ -64,6 +68,7 @@ public class GetRabbitMode : MonoBehaviour
     public void OpenGetRB()
     {
         UIPopRUGet.SetActive(false);
+        GetRabbit(4);
         UIPopGetRB.SetActive(true);
     }
 
@@ -75,9 +80,22 @@ public class GetRabbitMode : MonoBehaviour
 
     public void SpawnRabbit()
     {
-        int rabbitIdx = Random.Range(0, rabbitList.Count);
+        int rabbitIdx = 4;
 
         //Instantiate 생성객체 ,            위치값 ,               회전값
         curRabbit = Instantiate(rabbitList[rabbitIdx], new Vector3(0, 0, 0), Quaternion.Euler(new Vector3(0, 0, 0)));
+    }
+
+    public void GetRabbit(int i)
+    {
+        characterManager.Character[i].getCharacter = true;
+    }
+
+    public void OpenUICharacterList()
+    {
+        UICharacterList.gameObject.SetActive(true);
+
+        UICharacterList.SetCharacterList();
+        UIPopGetRB.SetActive(false);
     }
 }

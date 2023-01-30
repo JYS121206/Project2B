@@ -27,6 +27,7 @@ public class MR_TestScene : MonoBehaviour
     CharacterManager1 characterManagerT;
     public UICharacterList1 UICharacterList;
 
+
     void Start()
     {
         characterManagerT = CharacterManager1.GetInstance();
