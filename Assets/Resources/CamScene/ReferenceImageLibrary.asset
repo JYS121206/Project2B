@@ -16,12 +16,12 @@ MonoBehaviour:
   m_GuidHigh: 17754434976520454561
   m_Images:
   - m_SerializedGuid:
-      m_GuidLow: 4689876571438634557
-      m_GuidHigh: 416472619653190823
+      m_GuidLow: 4621193259764204647
+      m_GuidHigh: 17077025614792427199
     m_SerializedTextureGuid:
-      m_GuidLow: 861418661627152855
-      m_GuidHigh: 3727981464827742536
-    m_Size: {x: 0.1, y: 0.1}
+      m_GuidLow: 14498447302121674479
+      m_GuidHigh: 8627301928202857353
+    m_Size: {x: 0.1, y: 0.16565657}
     m_SpecifySize: 1
-    m_Name: "\uCC39\uC300\uD1A0\uB07C 1"
+    m_Name: Rabbit3
     m_Texture: {fileID: 0}

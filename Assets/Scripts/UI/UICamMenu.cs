@@ -63,8 +63,8 @@ public class UICamMenu : MonoBehaviour
             ListGroup.SetActive(false);
             btnOpenList.gameObject.SetActive(false);
 
-            getRabbitMode.SetActive(true);
-            setRabbitMode.SetActive(false);
+            //getRabbitMode.SetActive(true);
+            //setRabbitMode.SetActive(false);
 
             camMode = false;
 
@@ -75,8 +75,8 @@ public class UICamMenu : MonoBehaviour
             ListGroup.SetActive(false);
             btnOpenList.gameObject.SetActive(true);
             
-            getRabbitMode.SetActive(false);
-            setRabbitMode.SetActive(true);
+            //getRabbitMode.SetActive(false);
+            //setRabbitMode.SetActive(true);
             
             camMode = true;
         }

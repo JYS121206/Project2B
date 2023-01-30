@@ -44,16 +44,18 @@ public class GetRabbitMode : MonoBehaviour
 
             //UI뒤 오브젝트 클릭 못하게 하기
             if (EventSystem.current.IsPointerOverGameObject())
-                return;
-
-            else
             {
-                if (Physics.Raycast(ray, out hit))
-                {
-                    Debug.Log(hit.transform.gameObject);
-                    target = hit.transform.gameObject;
-                    UIPopRUGet.SetActive(true);
-                }
+                Debug.Log("eeee");
+                return;
+            }
+                
+
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                Debug.Log(hit.transform.gameObject);
+                target = hit.transform.gameObject;
+                UIPopRUGet.SetActive(true);
             }
         }
     }
