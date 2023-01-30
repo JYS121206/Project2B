@@ -25,6 +25,7 @@ public class MR_TestScene : MonoBehaviour
     GameObject target;
 
     CharacterManager1 characterManagerT;
+    public UICharacterList1 UICharacterList;
 
     void Start()
     {
@@ -75,7 +76,9 @@ public class MR_TestScene : MonoBehaviour
     public void OpenGetRB()
     {
         UIPopRUGet.SetActive(false);
+        GetRabbitTest(4);
         UIPopGetRB.SetActive(true);
+        
     }
 
     public void CloseGetRB()
@@ -86,7 +89,7 @@ public class MR_TestScene : MonoBehaviour
 
     public void SpawnRabbit()
     {
-        int rabbitIdx = Random.Range(0, rabbitList.Count);
+        int rabbitIdx = 4;
 
         //Instantiate 생성객체 ,            위치값 ,               회전값
         curRabbit = Instantiate(rabbitList[rabbitIdx], new Vector3(0, 0, 0), Quaternion.Euler(new Vector3(0, 0, 0)));
@@ -95,5 +98,13 @@ public class MR_TestScene : MonoBehaviour
     public void GetRabbitTest(int i)
     {
         characterManagerT.Character[i].getCharacter = true;
+    }
+
+    public void OpenUICharacterList()
+    {
+        UICharacterList.gameObject.SetActive(true);
+
+        UICharacterList.SetCharacterList();
+        UIPopGetRB.SetActive(false);
     }
 }
