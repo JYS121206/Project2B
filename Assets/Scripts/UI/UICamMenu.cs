@@ -42,8 +42,9 @@ public class UICamMenu : MonoBehaviour
         btnOpenList.onClick.AddListener(OpenList);
         btnCloseList.onClick.AddListener(CloseList);
 
-        btnPreScene.onClick.AddListener(() => { ScenesManager.GetInstance().ChangeScene(Scene.Main); });
-        btnToMain.onClick.AddListener(() => { ScenesManager.GetInstance().ChangeScene(Scene.Main); });
+        btnPreScene.onClick.AddListener(ToMainScene);
+        btnToMain.onClick.AddListener(ToMainScene);
+
 
     }
 
@@ -154,5 +155,10 @@ public class UICamMenu : MonoBehaviour
         UICharacterList.SetCharacterList();
 
         CloseList();
+    }
+
+    public void ToMainScene()
+    {
+        ScenesManager.GetInstance().ChangeScene(Scene.Main1);
     }
 }
