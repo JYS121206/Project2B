@@ -28,6 +28,6 @@ public class OrnaBookBtns : MonoBehaviour
     public void OpenOrnaInfo(int bookBtnsidx)
     {
         OrnamentManager.GetInstance().SetOrnaList(bookBtnsidx);
-        OrnaInfoUI.GetComponent<OrnaInfoUI>().LaodOrnaInfo(bookBtnsidx);
+        OrnaInfoUI.GetComponent<OrnaInfoUI>().LoadOrnaInfo(bookBtnsidx);
     }
 }

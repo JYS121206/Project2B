@@ -56,6 +56,8 @@ public class OrnamentManager : MonoBehaviour
             new Ornament("°¡±¸4" ,100,false ,1 ,false )
         });
 
+
+
     }
     
     public void SetOrnaList(int _ornamentsList)
