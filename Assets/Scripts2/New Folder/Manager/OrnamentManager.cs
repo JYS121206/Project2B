@@ -42,21 +42,35 @@ public class OrnamentManager : MonoBehaviour
         
         _ornamentsList.Add(new Ornament[]
         {
-            new Ornament("가구1" ,100,false ,1 ,false ),
-            new Ornament("가구2" ,100,false ,1 ,false ),
-            new Ornament("가구3" ,100,false ,1 ,false ),
-            new Ornament("가구4" ,100,false ,1 ,false )
+            new Ornament("침대" ,100,false ,1 ,false ),
+            new Ornament("옷장" ,100,false ,1 ,false ),
+            new Ornament("책선반" ,100,false ,1 ,false ),
+            new Ornament("책상" ,100,false ,1 ,false ),
+            new Ornament("바닥장식" ,100,false ,1 ,false ),
+            new Ornament("침상서랍장" ,100,false ,1 ,false ),
+            new Ornament("벽장식" ,100,false ,1 ,false )
         });
 
         _ornamentsList.Add(new Ornament[]
         {
-            new Ornament("가구1" ,100,false ,1 ,false ),
-            new Ornament("가구2" ,100,false ,1 ,false ),
-            new Ornament("가구3" ,100,false ,1 ,false ),
-            new Ornament("가구4" ,100,false ,1 ,false )
+            new Ornament("책장" ,100,false ,1 ,false ),
+            new Ornament("화분" ,100,false ,1 ,false ),
+            new Ornament("창가장식" ,100,false ,1 ,false ),
+            new Ornament("소파" ,100,false ,1 ,false ),
+            new Ornament("소파선반" ,100,false ,1 ,false ),
+            new Ornament("티테이블" ,100,false ,1 ,false ),
+            new Ornament("턴테이블" ,100,false ,1 ,false )
         });
 
-
+        _ornamentsList.Add(new Ornament[]
+        {
+            new Ornament("캔버스이젤" ,100,false ,1 ,false ),
+            new Ornament("의자" ,100,false ,1 ,false ),
+            new Ornament("벽조명" ,100,false ,1 ,false ),
+            new Ornament("디딤석" ,100,false ,1 ,false ),
+            new Ornament("그네의자" ,100,false ,1 ,false ),
+            new Ornament("테이블" ,100,false ,1 ,false )
+        });
 
     }
     

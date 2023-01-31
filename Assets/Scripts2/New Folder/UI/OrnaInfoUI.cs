@@ -6,21 +6,23 @@ using UnityEngine.UI;
 
 public class OrnaInfoUI : MonoBehaviour
 {
-    [SerializeField] private TMP_Text txtOrnasName;
+    [SerializeField] private Text txtOrnasName;
 
     [SerializeField] private GameObject gObjOrnaInfo;
 
     [SerializeField] private GameObject pick;
 
-    [SerializeField] private GameObject ornaImges;
+    [SerializeField] private Image ornaImage;
 
-    [SerializeField] private Button Close;
+    [SerializeField] private GameObject ornaUIfrofile;
+
+    [SerializeField] private GameObject ornaUIList;
+
+    [SerializeField] private Button listClose;
 
     private Button[] btnOrnaPick;
 
-    private Image[] ornaImage;
-
-    public GameObject ornaObjs;
+    private GameObject ornaObjs;
     
 
     //int ornaidx;
@@ -31,21 +33,22 @@ public class OrnaInfoUI : MonoBehaviour
     private void Awake()
     {
         btnOrnaPick = new Button[OrnamentManager.GetInstance()._ornamentsList[0].Length];
-        ornaImage = new Image[OrnamentManager.GetInstance()._ornamentsList[0].Length];
+       
         for (int i = 0; i < OrnamentManager.GetInstance()._ornamentsList[0].Length; i++)
         {
             btnOrnaPick[i] = pick.GetComponentsInChildren<Button>()[i];
-            ornaImage[i] = ornaImges.GetComponentsInChildren<Image>()[i];
         }
+
         for (int j = 0; j < OrnamentManager.GetInstance()._ornamentsList[0].Length; j++)
         {
-            ornaImage[j].gameObject.SetActive(OrnamentManager.GetInstance()._ornamentsList[0][j].getOrnament);
             btnOrnaPick[j].gameObject.SetActive(OrnamentManager.GetInstance()._ornamentsList[0][j].pick);
-            ornaImage[j].sprite = Resources.Load<Sprite>($"YSJ/{OrnamentManager.GetInstance()._ornamentsList[0][j].ornamentName}");
+            ornaImage.sprite = Resources.Load<Sprite>($"YSJ/{OrnamentManager.GetInstance()._ornamentsList[0][j].ornamentName}");
         }
     }
     private void Start()
     {
+        listClose.onClick.AddListener(CloseOrnaInfo);
+
         for (int i = 0; i < btnOrnaPick.Length; i++)
         {
             int btnOrnaPickidx = i;
@@ -54,31 +57,39 @@ public class OrnaInfoUI : MonoBehaviour
                 OpenOrnaObj(btnOrnaPickidx);
             });
         }
-            Close.onClick.AddListener(CloseOrnaInfo);
     }
 
     public void LoadOrnaInfo(int ornaidx)
     {
-        gObjOrnaInfo.gameObject.SetActive(true);
+        ornaUIfrofile.gameObject.SetActive(true);
+        ornaUIList.gameObject.SetActive(false);
+        //gObjOrnaInfo.gameObject.SetActive(true);
         txtOrnasName.text = OrnamentManager.GetInstance()._ornamentsList[0][ornaidx].ornamentName;
-        ornaImage[ornaidx].gameObject.SetActive(true);
+        // ornaImage.gameObject.SetActive(true);
         btnOrnaPick[ornaidx].gameObject.SetActive(true);
+       
     }
 
     public void CloseOrnaInfo()
     {
-        gObjOrnaInfo.gameObject.SetActive(false);
+        // gObjOrnaInfo.gameObject.SetActive(false);
+        // for (int j = 0; j < OrnamentManager.GetInstance()._ornamentsList[0].Length; j++)
+        // {
+        //     ornaImage.gameObject.SetActive(OrnamentManager.GetInstance()._ornamentsList[0][j].getOrnament);
+        //     btnOrnaPick[j].gameObject.SetActive(OrnamentManager.GetInstance()._ornamentsList[0][j].pick);
+        // }
         for (int j = 0; j < OrnamentManager.GetInstance()._ornamentsList[0].Length; j++)
         {
-            ornaImage[j].gameObject.SetActive(OrnamentManager.GetInstance()._ornamentsList[0][j].getOrnament);
             btnOrnaPick[j].gameObject.SetActive(OrnamentManager.GetInstance()._ornamentsList[0][j].pick);
         }
+
+        ornaUIfrofile.gameObject.SetActive(false);
+        ornaUIList.gameObject.SetActive(true);
     }
 
     public void OpenOrnaObj(int ornaPickidx)
     {
         ornaObjs.GetComponent<OrnaRoomObj>().LoadOrnaObj(ornaPickidx);
     }
-
-
+    
 }
