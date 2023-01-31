@@ -83,10 +83,5 @@ public class OrnamentManager : MonoBehaviour
     {
         return _ornamentsList[ornamentsListIdx];
     }
-    
-    private void Start()
-    {
-        
-    }
 
 }
