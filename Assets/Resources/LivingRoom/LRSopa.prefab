@@ -173,7 +173,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3668220092638712344}
   m_Layer: 0
-  m_Name: Sopa
+  m_Name: LRSopa
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

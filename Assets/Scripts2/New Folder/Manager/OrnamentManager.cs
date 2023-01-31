@@ -42,34 +42,34 @@ public class OrnamentManager : MonoBehaviour
         
         _ornamentsList.Add(new Ornament[]
         {
-            new Ornament("침대" ,100,false ,1 ,false ),
-            new Ornament("옷장" ,100,false ,1 ,false ),
-            new Ornament("책선반" ,100,false ,1 ,false ),
-            new Ornament("책상" ,100,false ,1 ,false ),
-            new Ornament("바닥장식" ,100,false ,1 ,false ),
-            new Ornament("침상서랍장" ,100,false ,1 ,false ),
-            new Ornament("벽장식" ,100,false ,1 ,false )
+            new Ornament("침실 침대", "BRBed" ,100,false ,1 ,false ),
+            new Ornament("침실 옷장", "BRCloset" ,100,false ,1 ,false ),
+            new Ornament("침실 책선반", "BRBookcase" ,100,false ,1 ,false ),
+            new Ornament("침실 책상", "BRDesk" ,100,false ,1 ,false ),
+            new Ornament("침실 바닥장식", "BRRug" ,100,false ,1 ,false ),
+            new Ornament("침실 침대서랍장", "BRBedTable"  ,100,false ,1 ,false ),
+            new Ornament("침실 벽장식", "BRWalldecoration"  ,100,false ,1 ,false )
         });
 
         _ornamentsList.Add(new Ornament[]
         {
-            new Ornament("책장" ,100,false ,1 ,false ),
-            new Ornament("화분" ,100,false ,1 ,false ),
-            new Ornament("창가장식" ,100,false ,1 ,false ),
-            new Ornament("소파" ,100,false ,1 ,false ),
-            new Ornament("소파선반" ,100,false ,1 ,false ),
-            new Ornament("티테이블" ,100,false ,1 ,false ),
-            new Ornament("턴테이블" ,100,false ,1 ,false )
+            new Ornament("거실 책장", "LRBookcase"  ,100,false ,1 ,false ),
+            new Ornament("거실 화분", "LRFlowerpot"  ,100,false ,1 ,false ),
+            new Ornament("거실 창가장식", "LRWindowdecoration"  ,100,false ,1 ,false ),
+            new Ornament("거실 소파", "LRSopa"  ,100,false ,1 ,false ),
+            new Ornament("거실 소파선반", "LRSopaTable"  ,100,false ,1 ,false ),
+            new Ornament("거실 티 테이블", "LRTeaTable"  ,100,false ,1 ,false ),
+            new Ornament("거실 턴 테이블", "LRTurntable"  ,100,false ,1 ,false )
         });
 
         _ornamentsList.Add(new Ornament[]
         {
-            new Ornament("캔버스이젤" ,100,false ,1 ,false ),
-            new Ornament("의자" ,100,false ,1 ,false ),
-            new Ornament("벽조명" ,100,false ,1 ,false ),
-            new Ornament("디딤석" ,100,false ,1 ,false ),
-            new Ornament("그네의자" ,100,false ,1 ,false ),
-            new Ornament("테이블" ,100,false ,1 ,false )
+            new Ornament("정원 캔버스이젤", "YaCanvasEasel"  ,100,false ,1 ,false ),
+            new Ornament("정원 의자", "YaChair"  ,100,false ,1 ,false ),
+            new Ornament("정원 벽조명", "YaLamp"  ,100,false ,1 ,false ),
+            new Ornament("정원 디딤석", "YaSteppingStone"  ,100,false ,1 ,false ),
+            new Ornament("정원 그네의자", "YaSwingChair"  ,100,false ,1 ,false ),
+            new Ornament("정원 테이블", "YaTable"  ,100,false ,1 ,false )
         });
 
     }
