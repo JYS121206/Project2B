@@ -63,30 +63,40 @@ public class OrnaInfoUI : MonoBehaviour
 
     public void LoadOrnaInfo(int ornaidx) // 도감 가구 설명창 열림
     {
-        ornaUIfrofile.gameObject.SetActive(true);
-        ornaUIList.gameObject.SetActive(false);
-        txtOrnasName.text = OrnamentManager.GetInstance()._ornamentsList[0][ornaidx].ornamentName;
-        ornaImage.gameObject.SetActive(true);
-        ornaImage.sprite = Resources.Load<Sprite>($"YSJ/{OrnamentManager.GetInstance()._ornamentsList[0][ornaidx].prefabName}");  // 이미지 로드
-        btnOrnaPick[ornaidx].gameObject.SetActive(true);
-       
+        for (int i = 0; i < OrnamentManager.GetInstance()._ornamentsList.Count; i++)
+        {
+            if (ornaRoom.GetComponent<OrnaRoom>().room[i].activeSelf == true)
+            {
+                ornaUIfrofile.gameObject.SetActive(true);
+                ornaUIList.gameObject.SetActive(false);
+                txtOrnasName.text = OrnamentManager.GetInstance()._ornamentsList[i][ornaidx].ornamentName;
+                ornaImage.gameObject.SetActive(true);
+                ornaImage.sprite = Resources.Load<Sprite>($"OrnaUI/{OrnamentManager.GetInstance()._ornamentsList[i][ornaidx].prefabName}");  // 이미지 로드
+                btnOrnaPick[ornaidx].gameObject.SetActive(true);
+            }
+        }
     }
 
     public void CloseOrnaInfo() // 
     {
         // gObjOrnaInfo.gameObject.SetActive(false);
-        for (int j = 0; j < OrnamentManager.GetInstance()._ornamentsList[0].Length; j++)
-        {
-            ornaImage.gameObject.SetActive(false);
-            btnOrnaPick[j].gameObject.SetActive(OrnamentManager.GetInstance()._ornamentsList[0][j].pick);
-        }
-        for (int j = 0; j < OrnamentManager.GetInstance()._ornamentsList[0].Length; j++)
-        {
-            btnOrnaPick[j].gameObject.SetActive(OrnamentManager.GetInstance()._ornamentsList[0][j].pick);
-        }
-
-        ornaUIfrofile.gameObject.SetActive(false);
-        ornaUIList.gameObject.SetActive(true);
+        for (int i = 0; i < OrnamentManager.GetInstance()._ornamentsList.Count; i++)
+            if (ornaRoom.GetComponent<OrnaRoom>().room[i].activeSelf == true)
+            {
+                for (int j = 0; j < OrnamentManager.GetInstance()._ornamentsList[i].Length; j++)
+                {
+                    ornaImage.gameObject.SetActive(false);
+                    btnOrnaPick[j].gameObject.SetActive(OrnamentManager.GetInstance()._ornamentsList[i][j].pick);
+                }
+                for (int j = 0; j < OrnamentManager.GetInstance()._ornamentsList[i].Length; j++)
+                {
+                    btnOrnaPick[j].gameObject.SetActive(OrnamentManager.GetInstance()._ornamentsList[i][j].pick);
+                }
+                ornaUIfrofile.gameObject.SetActive(false);
+                ornaUIList.gameObject.SetActive(true);
+            }
+        //ornaUIfrofile.gameObject.SetActive(false);
+        //ornaUIList.gameObject.SetActive(true);
     }
 
     public void OpenOrnaObj(int ornaPickidx)
