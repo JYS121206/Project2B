@@ -10,7 +10,8 @@ public enum Scene
     CamScene,
     YSJ,
     CharacterList,
-    Shop
+    Shop,
+    ARSetScene
 }
 
 public class ScenesManager : MonoBehaviour

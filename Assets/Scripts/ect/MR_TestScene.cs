@@ -1,8 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class MR_TestScene : MonoBehaviour
 {
@@ -27,6 +26,9 @@ public class MR_TestScene : MonoBehaviour
     CharacterManager1 characterManagerT;
     public UICharacterList1 UICharacterList;
 
+    Ray ray;
+    RaycastHit hit;
+
 
     void Start()
     {
@@ -43,8 +45,7 @@ public class MR_TestScene : MonoBehaviour
         if (rabbitList == null)
             return;
 
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
+        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
         if (Input.GetMouseButtonUp(0))
         {
@@ -61,6 +62,7 @@ public class MR_TestScene : MonoBehaviour
                         Debug.Log(hit.transform.gameObject);
                         target = hit.transform.gameObject;
                         UIPopRUGet.SetActive(true);
+                        Debug.Log(hit.transform.name + "가 나타났다.");
                     }
                 }
             }
@@ -77,9 +79,11 @@ public class MR_TestScene : MonoBehaviour
     public void OpenGetRB()
     {
         UIPopRUGet.SetActive(false);
-        GetRabbitTest(4);
+        Debug.Log("111");
+        GetRabbitTest();
+        Debug.Log("222");
         UIPopGetRB.SetActive(true);
-        
+
     }
 
     public void CloseGetRB()
@@ -90,16 +94,31 @@ public class MR_TestScene : MonoBehaviour
 
     public void SpawnRabbit()
     {
-        int rabbitIdx = 4;
+        int rabbitIdx = Random.Range(0, characterManagerT.Character.Count);
 
         //Instantiate 생성객체 ,            위치값 ,               회전값
         curRabbit = Instantiate(rabbitList[rabbitIdx], new Vector3(0, 0, 0), Quaternion.Euler(new Vector3(0, 0, 0)));
     }
 
-    public void GetRabbitTest(int i)
+    public void GetRabbitTest()
     {
-        characterManagerT.Character[i].getCharacter = true;
+        string name;
+        name = hit.transform.name;
+        int x;
+
+        for (int i = 0; i < characterManagerT.Character.Count; i++)
+        {
+            Debug.Log("포문시작");
+
+            if (characterManagerT.Character[i].characterName + "(Clone)" == name)
+            {
+                x = i;
+                characterManagerT.Character[x].getCharacter = true;
+                Debug.Log(x + "번째 캐릭터를 획득하였습니다.");
+            }
+        }
     }
+
 
     public void OpenUICharacterList()
     {

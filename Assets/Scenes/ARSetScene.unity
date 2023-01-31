@@ -5758,41 +5758,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
-    - target: {fileID: 2762882517644126612, guid: 951c05763b297ef4e87957095f62e240,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2762882517644126612, guid: 951c05763b297ef4e87957095f62e240,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2762882517644126612, guid: 951c05763b297ef4e87957095f62e240,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 963735753}
-    - target: {fileID: 2762882517644126612, guid: 951c05763b297ef4e87957095f62e240,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2762882517644126612, guid: 951c05763b297ef4e87957095f62e240,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ToARSetScene
-      objectReference: {fileID: 0}
-    - target: {fileID: 2762882517644126612, guid: 951c05763b297ef4e87957095f62e240,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UICamMenu, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 2762882517644126612, guid: 951c05763b297ef4e87957095f62e240,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 2875771959593850052, guid: 951c05763b297ef4e87957095f62e240,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -5908,20 +5873,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6673046696882982403, guid: 951c05763b297ef4e87957095f62e240,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7124318933596559487, guid: 951c05763b297ef4e87957095f62e240,
         type: 3}
       propertyPath: m_Name
       value: btnPrintSC
-      objectReference: {fileID: 0}
-    - target: {fileID: 7124318933596559487, guid: 951c05763b297ef4e87957095f62e240,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7773851475745982836, guid: 951c05763b297ef4e87957095f62e240,
         type: 3}
@@ -6018,15 +5973,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e0c5db13e1e48e4095afd8eef2fc45a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Rabbit:
-    serializedVersion: 2
-    m_Bits: 256
   UIPopRUGet: {fileID: 1756507591}
   UIPopGetRB: {fileID: 558462154}
   btnGet: {fileID: 2049564221}
   btnPass: {fileID: 1200164458}
+  btnCloseRUGet: {fileID: 0}
   btnConfirm: {fileID: 293674465}
   btnContinue: {fileID: 673253002}
+  btnCloseGetRB: {fileID: 0}
+  rabbitList: []
   UICharacterList: {fileID: 1720029094}
 --- !u!4 &1122421595
 Transform:
@@ -6539,11 +6494,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeablePrefabs:
   - {fileID: 3137616458487580980, guid: 76ecd2b0f93bf6543948fd2f827230cf, type: 3}
-  - {fileID: 1110248076958421064, guid: ea67b231e561dc34bbfb10f3c590af22, type: 3}
+  - {fileID: 3137616458487580980, guid: ea67b231e561dc34bbfb10f3c590af22, type: 3}
   - {fileID: 3137616458487580980, guid: ce5ac3970e8effa4bb17e24c631f563a, type: 3}
   - {fileID: 3137616458487580980, guid: 11911a134fd6f97469df416e4e5356f5, type: 3}
-  - {fileID: 3137616458487580980, guid: fa5af990462e4594e8e1a2df4cb5c8c0, type: 3}
-  - {fileID: 3137616458487580980, guid: 39aff1d54b33bed42a5a54ab2363b35b, type: 3}
 --- !u!1 &1686102931 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1726204100171970949, guid: 951c05763b297ef4e87957095f62e240,

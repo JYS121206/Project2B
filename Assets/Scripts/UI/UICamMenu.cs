@@ -13,8 +13,8 @@ public class UICamMenu : MonoBehaviour
     public Button btnOpenList;
     public Button btnCloseList;
     public GameObject ListGroup;
-    public GameObject getRabbitMode;
-    public GameObject setRabbitMode;
+    //public GameObject getRabbitMode;
+    //public GameObject setRabbitMode;
     public GameObject UIMenuGroup;
 
     public Button btnToMain;
@@ -28,6 +28,8 @@ public class UICamMenu : MonoBehaviour
     CharacterManager1 characterManager;
     public UICharacterList1 UICharacterList;
 
+    public GetRabbitMode GetRabbitMode;
+
     void Start()
     {
         camMode = true;
@@ -36,7 +38,6 @@ public class UICamMenu : MonoBehaviour
         ListGroup.SetActive(false);
         btnOpenList.gameObject.SetActive(false);
 
-        setRabbitMode.SetActive(false);
 
         btnChangeMode.onClick.AddListener(ChangeMode);
         btnOpenList.onClick.AddListener(OpenList);
@@ -44,7 +45,6 @@ public class UICamMenu : MonoBehaviour
 
         btnPreScene.onClick.AddListener(ToMainScene);
         btnToMain.onClick.AddListener(ToMainScene);
-
 
     }
 
@@ -151,14 +151,18 @@ public class UICamMenu : MonoBehaviour
 
     public void OpenCharacterList()
     {
-        UICharacterList.gameObject.SetActive(true);
-        UICharacterList.SetCharacterList();
-
-        CloseList();
+        UIMenuGroup.SetActive(false);
+        GetRabbitMode.OpenUICharacterList();
     }
+
 
     public void ToMainScene()
     {
         ScenesManager.GetInstance().ChangeScene(Scene.Main1);
+    }
+
+    public void ToARSetScene()
+    {
+        ScenesManager.GetInstance().ChangeScene(Scene.ARSetScene);
     }
 }
