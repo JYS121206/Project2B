@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 873c9f4249f7d0744872862383b05f43, type: 2}
+  - {fileID: 2100000, guid: a1d8e5640b1b84349ae66fdae7ab4f92, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -155,7 +155,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 873c9f4249f7d0744872862383b05f43, type: 2}
+  - {fileID: 2100000, guid: a1d8e5640b1b84349ae66fdae7ab4f92, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -200,7 +200,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3137616458487580981}
   m_Layer: 8
-  m_Name: "\uD1A0\uB07C4"
+  m_Name: Rabbit2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -285,7 +285,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4acdbeb94e4ce614691979afb1ee7a5e, type: 2}
+  - {fileID: 2100000, guid: 7422d4f48330e3f4caabb8b5fc292294, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -380,7 +380,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4acdbeb94e4ce614691979afb1ee7a5e, type: 2}
+  - {fileID: 2100000, guid: 7422d4f48330e3f4caabb8b5fc292294, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -475,7 +475,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4acdbeb94e4ce614691979afb1ee7a5e, type: 2}
+  - {fileID: 2100000, guid: 7422d4f48330e3f4caabb8b5fc292294, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

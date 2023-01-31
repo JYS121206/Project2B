@@ -200,7 +200,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3137616458487580981}
   m_Layer: 8
-  m_Name: "\uD1A0\uB07C3"
+  m_Name: Rabbit4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -285,7 +285,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3a3c30570031b4b409d9e8ddeecf0805, type: 2}
+  - {fileID: 2100000, guid: 4acdbeb94e4ce614691979afb1ee7a5e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -380,7 +380,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e32e21e52c319b34f963f527ef03911f, type: 2}
+  - {fileID: 2100000, guid: 4acdbeb94e4ce614691979afb1ee7a5e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -475,7 +475,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e32e21e52c319b34f963f527ef03911f, type: 2}
+  - {fileID: 2100000, guid: 4acdbeb94e4ce614691979afb1ee7a5e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

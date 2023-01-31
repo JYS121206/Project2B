@@ -200,7 +200,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3137616458487580981}
   m_Layer: 8
-  m_Name: "\uC2A4\uD398\uC15C\uD1A0\uB07C"
+  m_Name: RabbitSP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

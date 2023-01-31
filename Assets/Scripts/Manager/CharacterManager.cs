@@ -41,12 +41,12 @@ public class CharacterManager : MonoBehaviour
         Character = new Character[]
             {
                 //  Character( ÀÌ¸§   °¡°İ  get? ¼ö·® ºÏ¸¶Å©?)
-                new Character("Åä³¢1", 600, false, 0, false),
-                new Character("Åä³¢2", 500, false, 0, false),
-                new Character("Åä³¢3", 200, false, 0, false),
-                new Character("Åä³¢4", 400, false, 0, false),
-                new Character("Âı½ÒÅä³¢", 10, false, 0, false),
-                new Character("½ºÆä¼ÈÅä³¢", 5000, false, 0, false)
+                new Character("Rabbit1", 600, false, 0, false),
+                new Character("Rabbit2", 500, false, 0, false),
+                new Character("Rabbit3", 200, false, 0, false),
+                new Character("Rabbit4", 400, false, 0, false),
+                new Character("RabbitNM", 10, false, 0, false),
+                new Character("RabbitSP", 5000, false, 0, false)
             };
     }
 
