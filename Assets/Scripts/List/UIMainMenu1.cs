@@ -20,6 +20,7 @@ public class UIMainMenu1 : MonoBehaviour
     public Button toCam;
     public Button toCr;
     public Button btnToShop;
+    public Button btnToGame;
     public Button toCharacterList;
     public GameObject UICharacterList;
 
@@ -79,10 +80,19 @@ public class UIMainMenu1 : MonoBehaviour
         btnCloseList.onClick.AddListener(CloseList);
         toCam.onClick.AddListener(() => { ScenesManager.GetInstance().ChangeScene(Scene.CamScene); });
         btnToShop.onClick.AddListener(() => { ScenesManager.GetInstance().ChangeScene(Scene.Shop); });
+        btnToGame.onClick.AddListener(GameStart);
         toCharacterList.onClick.AddListener(OpenCharacterList);
         toCr.onClick.AddListener(OpenCharacterList);
 
         btnTest.onClick.AddListener(() => { TestGetCharacter(); });
+    }
+
+    public void GameStart()
+    {
+        if (characterManager.Pick1st)
+            ScenesManager.GetInstance().ChangeScene(Scene.MiniGame);
+        else
+            Debug.Log($"플레이 가능한 캐릭터가 없습니다. 대표 캐릭터를 설정해주세요.");
     }
 
     public void SetCoin()

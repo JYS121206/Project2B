@@ -29,7 +29,6 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        curCoin = 0; 
         fullExp = 30; 
         curExp = 0;
     }

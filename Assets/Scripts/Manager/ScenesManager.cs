@@ -11,7 +11,8 @@ public enum Scene
     YSJ,
     CharacterList,
     Shop,
-    ARSetScene
+    ARSetScene,
+    MiniGame
 }
 
 public class ScenesManager : MonoBehaviour
