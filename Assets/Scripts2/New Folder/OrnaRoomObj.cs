@@ -11,18 +11,17 @@ public class OrnaRoomObj : MonoBehaviour
     private GameObject ornaRoom;
 
     //[SerializeField] private GameObject[] roomOrnaList;
-    [SerializeField] private GameObject bROrnaList;
-    [SerializeField] private GameObject lROrnaList;
-    [SerializeField] private GameObject yaOrnaList;
+    public GameObject bROrnaList;
+    public GameObject lROrnaList;
+    public GameObject yaOrnaList;
 
-    [SerializeField] private GameObject[] bROrnament;
-    [SerializeField] private GameObject[] lROrnament;
-    [SerializeField] private GameObject[] yaOrnament;
+    public GameObject[] bROrnament;
+    public GameObject[] lROrnament;
+    public GameObject[] yaOrnament;
     private void Awake()
     {
         ornaRoom = GameObject.FindGameObjectWithTag("OrnaRoom");
 
-   
         bROrnament = new GameObject[OrnamentManager.GetInstance()._ornamentsList[0].Length];
         lROrnament = new GameObject[OrnamentManager.GetInstance()._ornamentsList[1].Length];
         yaOrnament = new GameObject[OrnamentManager.GetInstance()._ornamentsList[2].Length];
@@ -50,6 +49,8 @@ public class OrnaRoomObj : MonoBehaviour
         bROrnaList.gameObject.SetActive(false);
         lROrnaList.gameObject.SetActive(false);
         yaOrnaList.gameObject.SetActive(false);
+
+        bROrnaList.gameObject.SetActive(true);
     }
 
     private void Start()
@@ -104,24 +105,27 @@ public class OrnaRoomObj : MonoBehaviour
         
     }
 
-    public void ResoLoadOrna(int buyRoomnum, int buyOrnanum)
+    public void ResoLoadOrna()
     {
-        for (int i = 0; i < OrnamentManager.GetInstance()._ornamentsList[i].Length; i++)
+        for (int i = 0; i < OrnamentManager.GetInstance()._ornamentsList.Count; i++)
         {
-            if (buyRoomnum == 0)
+            for (int j = 0; j < OrnamentManager.GetInstance()._ornamentsList[i].Length; j++)
             {
-                bROrnaList.GetComponentsInChildren<GameObject>()[i] = Resources.Load<GameObject>($"Ornaments/{OrnamentManager.GetInstance()._ornamentsList[buyRoomnum][buyOrnanum].prefabName}");
-                bROrnament[i].gameObject.SetActive(false);
-            }
-            else if (buyRoomnum == 1)
-            {
-                lROrnaList.GetComponentsInChildren<GameObject>()[i] = Resources.Load<GameObject>($"Ornaments/{OrnamentManager.GetInstance()._ornamentsList[buyRoomnum][buyOrnanum].prefabName}");
-                lROrnament[i].gameObject.SetActive(false);
-            }
-            else if (buyRoomnum == 2)
-            {
-                yaOrnaList.GetComponentsInChildren<GameObject>()[i] = Resources.Load<GameObject>($"Ornaments/{OrnamentManager.GetInstance()._ornamentsList[buyRoomnum][buyOrnanum].prefabName}");
-                yaOrnament[i].gameObject.SetActive(false);
+                if (i == 0)
+                {
+                    bROrnament[j] = Resources.Load<GameObject>($"Ornaments/{OrnamentManager.GetInstance()._ornamentsList[i][j].prefabName}");
+                    bROrnament[i].gameObject.SetActive(false);
+                }
+                else if (i == 1)
+                {
+                    lROrnament[j] = Resources.Load<GameObject>($"Ornaments/{OrnamentManager.GetInstance()._ornamentsList[i][j].prefabName}");
+                    lROrnament[i].gameObject.SetActive(false);
+                }
+                else if (i == 2)
+                {
+                    yaOrnament[j] = Resources.Load<GameObject>($"Ornaments/{OrnamentManager.GetInstance()._ornamentsList[i][j].prefabName}");
+                    yaOrnament[i].gameObject.SetActive(false);
+                }
             }
         }
     }
