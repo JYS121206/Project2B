@@ -32,6 +32,8 @@ public class UISetModeMenu : MonoBehaviour
 
     void Start()
     {
+        characterManager = CharacterManager1.GetInstance();
+
         camMode = true;
         UIMenuGroup.SetActive(false);
         //btnPrintSc.gameObject.SetActive(false);
