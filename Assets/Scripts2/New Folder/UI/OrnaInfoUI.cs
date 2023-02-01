@@ -20,12 +20,14 @@ public class OrnaInfoUI : MonoBehaviour
 
     [SerializeField] private Button listClose;
 
-    public GameObject ornaRoom;
+    private GameObject ornaRoom;
 
     private Button[] btnOrnaPick;
 
-    private GameObject ornaObjs;
-    
+    [SerializeField] private GameObject ornaRoomObjs;
+
+
+    bool isInit = false;
 
     //int ornaidx;
 
@@ -35,21 +37,28 @@ public class OrnaInfoUI : MonoBehaviour
     private void Awake()
     {
         ornaRoom = GameObject.FindGameObjectWithTag("OrnaRoom");
-        btnOrnaPick = new Button[OrnamentManager.GetInstance()._ornamentsList[0].Length]; // 픽버튼 배열
-       
-        for (int i = 0; i < OrnamentManager.GetInstance()._ornamentsList[0].Length; i++)
-        {
-            btnOrnaPick[i] = pick.GetComponentsInChildren<Button>()[i];  // 픽버튼 배열
-        }
+        
 
-        for (int j = 0; j < OrnamentManager.GetInstance()._ornamentsList[0].Length; j++)
-        {
-            btnOrnaPick[j].gameObject.SetActive(OrnamentManager.GetInstance()._ornamentsList[0][j].pick); // 픽버튼 활성화
-        }
+        
     }
     private void Start()
     {
         listClose.onClick.AddListener(CloseOrnaInfo); // 가구 설명 리스트 닫기
+    }
+
+    public void SetRoomData()
+    {
+        if (isInit)
+            return;
+        
+        var btns = pick.GetComponentsInChildren<Button>();
+        btnOrnaPick = new Button[btns.Length];
+
+        for (int i = 0; i < btns.Length; i++)
+        {
+            btnOrnaPick[i] = btns[i];
+            btnOrnaPick[i].gameObject.SetActive(false);
+        }
 
         for (int i = 0; i < btnOrnaPick.Length; i++)
         {
@@ -59,6 +68,26 @@ public class OrnaInfoUI : MonoBehaviour
                 OpenOrnaObj(btnOrnaPickidx);
             });
         }
+
+        isInit = true;
+
+        //for (int k = 0; k < OrnamentManager.GetInstance()._ornamentsList.Count; k++)
+        //{
+        //    if (ornaRoom.GetComponent<OrnaRoom>().room[k].activeSelf == true)
+        //    {
+        //        btnOrnaPick = new Button[OrnamentManager.GetInstance()._ornamentsList[k].Length];  // 픽버튼 배열
+        //        for (int i = 0; i < OrnamentManager.GetInstance()._ornamentsList[k].Length; i++)
+        //        {
+        //            var btns = pick.GetComponentsInChildren<Button>();
+        //            btnOrnaPick[i] = btns[i];  // 픽버튼 배열
+        //        }
+
+        //        for (int j = 0; j < OrnamentManager.GetInstance()._ornamentsList[k].Length; j++)
+        //        {
+        //            btnOrnaPick[j].gameObject.SetActive(OrnamentManager.GetInstance()._ornamentsList[0][j].pick); // 픽버튼 활성화
+        //        }
+        //    }
+        //}
     }
 
     public void LoadOrnaInfo(int ornaidx) // 도감 가구 설명창 열림
@@ -101,7 +130,7 @@ public class OrnaInfoUI : MonoBehaviour
 
     public void OpenOrnaObj(int ornaPickidx)
     {
-        ornaObjs.GetComponent<OrnaRoomObj>().LoadOrnaObj(ornaPickidx);
+        ornaRoomObjs.GetComponent<OrnaRoomObj>().LoadOrnaObj(ornaPickidx);
     }
     
 }

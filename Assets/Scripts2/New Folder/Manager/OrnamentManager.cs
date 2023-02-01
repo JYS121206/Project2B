@@ -31,23 +31,23 @@ public class OrnamentManager : MonoBehaviour
 
     #endregion
 
-    
+
     public int ornamentsListIdx = 0;
-    
+
     public List<Ornament[]> _ornamentsList = new List<Ornament[]>();
-    
+
     public void OrnamentList()
     {
         _ornamentsList = new List<Ornament[]>();
-        
+
         _ornamentsList.Add(new Ornament[]
         {
             new Ornament("침실 침대", "BRBed" ,100,false ,1 ,false ),
-            new Ornament("침실 옷장", "BRCloset" ,100,false ,1 ,false ),
+            new Ornament("침실 침대서랍장", "BRBedTable"  ,100,false ,1 ,false ),
             new Ornament("침실 책선반", "BRBookcase" ,100,false ,1 ,false ),
+            new Ornament("침실 옷장", "BRCloset" ,100,false ,1 ,false ),
             new Ornament("침실 책상", "BRDesk" ,100,false ,1 ,false ),
             new Ornament("침실 바닥장식", "BRRug" ,100,false ,1 ,false ),
-            new Ornament("침실 침대서랍장", "BRBedTable"  ,100,false ,1 ,false ),
             new Ornament("침실 벽장식", "BRWalldecoration"  ,100,false ,1 ,false )
         });
 
@@ -55,11 +55,11 @@ public class OrnamentManager : MonoBehaviour
         {
             new Ornament("거실 책장", "LRBookcase"  ,100,false ,1 ,false ),
             new Ornament("거실 화분", "LRFlowerpot"  ,100,false ,1 ,false ),
-            new Ornament("거실 창가장식", "LRWindowdecoration"  ,100,false ,1 ,false ),
             new Ornament("거실 소파", "LRSopa"  ,100,false ,1 ,false ),
             new Ornament("거실 소파선반", "LRSopaTable"  ,100,false ,1 ,false ),
             new Ornament("거실 티 테이블", "LRTeaTable"  ,100,false ,1 ,false ),
-            new Ornament("거실 턴 테이블", "LRTurntable"  ,100,false ,1 ,false )
+            new Ornament("거실 턴 테이블", "LRTurntable"  ,100,false ,1 ,false ),
+            new Ornament("거실 창가장식", "LRWindowdecoration"  ,100,false ,1 ,false )
         });
 
         _ornamentsList.Add(new Ornament[]
@@ -73,6 +73,9 @@ public class OrnamentManager : MonoBehaviour
         });
 
     }
+
+    // public List<GameObject> gameObjects = new List<GameObject>();
+    
     
     public void SetOrnaList(int _ornamentsList)
     {

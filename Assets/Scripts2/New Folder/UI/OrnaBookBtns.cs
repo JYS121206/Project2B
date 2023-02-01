@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditorInternal;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -24,6 +24,10 @@ public class OrnaBookBtns : MonoBehaviour
 
     private Text[] txtBtnOrnaName;
 
+    [SerializeField] private Image[] imgBtnOrnaImage;
+
+    bool isInit = false;
+
     private void Awake()
     {
         OrnaInfoUI = GameObject.FindGameObjectWithTag("OrnaInfoUI");
@@ -31,10 +35,10 @@ public class OrnaBookBtns : MonoBehaviour
         
         ornaAllList.gameObject.SetActive(false);
 
-        
         btnOrnaList.onClick.AddListener(OpenOrnaList);
         btnOrnaList2.onClick.AddListener(OpenOrnaList);
 
+        
         // for (int i = 0; i < OrnamentManager.GetInstance()._ornamentsList.Count; i++)
         // {
         //     if (ornaRoom.GetComponent<OrnaRoom>().room[i].activeSelf == true)
@@ -59,11 +63,6 @@ public class OrnaBookBtns : MonoBehaviour
     }
     private void Start()
     {
-       
-
-
-
-
         Close.onClick.AddListener(CloseOrnaList); // 도감 닫기 버튼클릭
 
         // for (int i = 0; i < ornaBookBtn.Length; i++) // 도감 가구 설명열기 버튼클릭
@@ -77,8 +76,14 @@ public class OrnaBookBtns : MonoBehaviour
         // }
     }
 
+
+
+
     private void Update()
     {
+        if (isInit == false)
+            return;
+
         OrnaBookBtn();
 
         for (int i = 0; i < ornaBookBtn.Length; i++) // 도감 가구 설명열기 버튼클릭
@@ -99,12 +104,15 @@ public class OrnaBookBtns : MonoBehaviour
     }
 
 
+
     
     public void OpenOrnaList() // 도감 열기
     {
         
         ornaAllList.gameObject.SetActive(true);
 
+        OrnaInfoUI.GetComponent<OrnaInfoUI>().SetRoomData();
+        isInit = true;
         // for (int j = 0; j < OrnamentManager.GetInstance()._ornamentsList[i].Length; j++)
         // {
         //     ornaBookBtn[j].gameObject.SetActive(true);
@@ -112,31 +120,46 @@ public class OrnaBookBtns : MonoBehaviour
         // }
     }
 
+
+
+
     public void CloseOrnaList() // 도감 닫기
     {
         ornaAllList.gameObject.SetActive(false);
     }
     
+
+
+
     public void OrnaBookBtn()
     {    // 가구 리스트 버튼 배열 / 룸에 따라 배열 갱신
         for (int i = 0; i < OrnamentManager.GetInstance()._ornamentsList.Count; i++) 
         {
             if (ornaRoom.GetComponent<OrnaRoom>().room[i].activeSelf == true)
             {
+                //ornaBookBtn[OrnamentManager.GetInstance()._ornamentsList[i].Length].gameObject.SetActive(true);
                 ornaBookBtn = new Button[OrnamentManager.GetInstance()._ornamentsList[i].Length];
                 txtBtnOrnaName = new Text[OrnamentManager.GetInstance()._ornamentsList[i].Length];
                 
 
                 for (int j = 0; j < OrnamentManager.GetInstance()._ornamentsList[i].Length; j++)
                 {
-                    //ornaBookBtn[j].gameObject.SetActive(true);
-                    ornaBookBtn[j] = ornaBookBtns.GetComponentsInChildren<Button>()[j];
-                    txtBtnOrnaName[j] = ornaBookBtns.GetComponentsInChildren<Text>()[j];
-                    
+                    if (j < OrnamentManager.GetInstance()._ornamentsList[i].Length)
+                    {
+                        //ornaBookBtn[j].gameObject.SetActive(true);
+                        ornaBookBtn[j] = ornaBookBtns.GetComponentsInChildren<Button>()[j];
+                        txtBtnOrnaName[j] = ornaBookBtns.GetComponentsInChildren<Text>()[j];
+                    }
+
+                    else
+                        ornaBookBtn[j].gameObject.SetActive(false);
                 }
             }
         }
          // 
+
+
+
         for (int i = 0; i < OrnamentManager.GetInstance()._ornamentsList.Count; i++)
         {
             if (ornaRoom.GetComponent<OrnaRoom>().room[i].activeSelf == true)
@@ -145,6 +168,7 @@ public class OrnaBookBtns : MonoBehaviour
                 {
                     ornaBookBtn[j].gameObject.SetActive(true);
                     txtBtnOrnaName[j].text = OrnamentManager.GetInstance()._ornamentsList[i][j].ornamentName;
+                    imgBtnOrnaImage[j].sprite = Resources.Load<Sprite>($"OrnaUI/{OrnamentManager.GetInstance()._ornamentsList[i][j].prefabName}");
                 }
             }
         }
