@@ -4996,7 +4996,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arRaycaster: {fileID: 1659859604}
-  placeCharacter: {fileID: 0}
+  characters: []
+  go: {fileID: 0}
+  UISetModeMenu: {fileID: 0}
 --- !u!4 &339756259
 Transform:
   m_ObjectHideFlags: 0
@@ -6451,7 +6453,6 @@ GameObject:
   - component: {fileID: 1659859602}
   - component: {fileID: 1659859601}
   - component: {fileID: 1659859604}
-  - component: {fileID: 1659859603}
   - component: {fileID: 1659859600}
   - component: {fileID: 1659859605}
   m_Layer: 0
@@ -6532,21 +6533,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PlanePrefab: {fileID: 1544120775}
   m_DetectionMode: 1
---- !u!114 &1659859603
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1659859597}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c67f5650e9d314541b81dd733b345570, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prfList: []
-  prf: {fileID: 0}
-  UICamSceneBtns: []
 --- !u!114 &1659859604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6840,7 +6826,7 @@ PrefabInstance:
     - target: {fileID: 5829924318043628735, guid: 0494ac9234e75d546b123280d73ebe28,
         type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.000000059604645
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6653665848925406267, guid: 0494ac9234e75d546b123280d73ebe28,
         type: 3}

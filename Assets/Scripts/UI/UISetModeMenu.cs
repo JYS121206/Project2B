@@ -28,7 +28,7 @@ public class UISetModeMenu : MonoBehaviour
     CharacterManager1 characterManager;
     public UICharacterList1 UICharacterList;
 
-    public GetRabbitMode SetRabbitMode;
+    public SetRabbitMode SetRabbitMode;
 
     void Start()
     {
@@ -47,6 +47,8 @@ public class UISetModeMenu : MonoBehaviour
 
         btnToMain.onClick.AddListener(ToMainScene);
         btnToMain2.onClick.AddListener(ToMainScene);
+
+        btnBookmark[0].onClick.AddListener(SetCharacterTest);
 
     }
 
@@ -129,13 +131,20 @@ public class UISetModeMenu : MonoBehaviour
                 int idx = i;
                 btnBookmark[x].GetComponent<Image>().sprite = Resources.Load<Sprite>($"Image/{characterManager.Character[i].characterName}");
                 //btnBookmark[x].onClick.AddListener(() => { UICharacterList.SetPick(idx); });
-                Debug.Log($"btnBookmark{x}번에 PickUp{idx} 저장");
+                btnBookmark[x].onClick.AddListener(() => { SetRabbitMode.PickRabbit(idx); });
+                //Debug.Log($"btnBookmark{x}번에 PickUp{idx} 저장");
                 x++;
             }
             if (x >= 3)
                 return;
         }
 
+    }
+
+    public void SetCharacterTest()
+    {
+        Debug.Log("aaa");
+        
     }
 
 

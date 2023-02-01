@@ -6,13 +6,21 @@ using UnityEngine.XR.ARFoundation;
 public class SetRabbitMode : MonoBehaviour
 {
     public ARRaycastManager arRaycaster;
-    public GameObject placeCharacter;
+    public GameObject[] characters;
+
+    public GameObject go;
 
     GameObject spawnCharacter;
 
-    Dictionary<int, GameObject> characters = new Dictionary<int, GameObject>();
+    Dictionary<int, GameObject> characters2 = new Dictionary<int, GameObject>();
 
     CharacterManager1 characterManager;
+
+    public UISetModeMenu UISetModeMenu;
+    public UICharacterList1 UICharacterList;
+
+    Ray ray;
+    RaycastHit rayHit;
 
 
     void Start()
@@ -22,7 +30,7 @@ public class SetRabbitMode : MonoBehaviour
 
     void Update()
     {
-        PlaceObject();
+        //PlaceObject();
     }
 
     private void PlaceObject()
@@ -36,15 +44,48 @@ public class SetRabbitMode : MonoBehaviour
             {
                 Pose hitPose = hits[0].pose;
 
-                if (spawnCharacter == null)
-                    spawnCharacter = Instantiate(placeCharacter, hitPose.position, hitPose.rotation);
-                else
-                {
-                    spawnCharacter.transform.position = hitPose.position; 
-                    spawnCharacter.transform.rotation = hitPose.rotation;
-                }
+                
+                //if (spawnCharacter == null)
+                //    spawnCharacter = Instantiate(characters, hitPose.position, hitPose.rotation);
+                //else
+                //{
+                //    spawnCharacter.transform.position = hitPose.position; 
+                //    spawnCharacter.transform.rotation = hitPose.rotation;
+                //}
                     
             }
         }
+    }
+
+    public void PickRabbit(int idx)
+    {
+        Debug.Log("aaaa");
+        int placeCharacter = 0;
+
+        if (spawnCharacter == null)
+        {
+            Debug.Log("bbb");
+            spawnCharacter = (GameObject)Instantiate(characters[idx], go.transform);
+            
+            placeCharacter++;
+        }
+        if (placeCharacter >= 2)
+            return;
+        
+        //Characters[idx]
+    }
+
+    public void BookmarkCharacter()
+    {
+        characters2.Add(1, spawnCharacter);
+
+    }
+
+    public void OpenUICharacterList()
+    {
+        UICharacterList.gameObject.SetActive(true);
+
+        UICharacterList.SetCharacterList();
+        //UIPopGetRB.SetActive(false);
     }
 }
