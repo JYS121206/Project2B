@@ -22,6 +22,10 @@ public class SetRabbitMode : MonoBehaviour
     Ray ray;
     RaycastHit rayHit;
 
+    public LayerMask Rabbit;
+
+    Camera cam;
+
 
     void Start()
     {
@@ -31,6 +35,7 @@ public class SetRabbitMode : MonoBehaviour
     void Update()
     {
         //PlaceObject();
+        PlaceCharacter();
     }
 
     private void PlaceObject()
@@ -44,6 +49,11 @@ public class SetRabbitMode : MonoBehaviour
             {
                 Pose hitPose = hits[0].pose;
 
+                if(Physics.Raycast(ray, out rayHit, Rabbit))
+                {
+                    spawnCharacter = rayHit.transform.gameObject;
+                    spawnCharacter.transform.position = transform.position = hitPose.position;
+                }
                 
                 //if (spawnCharacter == null)
                 //    spawnCharacter = Instantiate(characters, hitPose.position, hitPose.rotation);
@@ -56,6 +66,23 @@ public class SetRabbitMode : MonoBehaviour
             }
         }
     }
+
+    public void PlaceCharacter()
+    {
+        GameObject placeCharacter;
+
+        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        if (Input.GetMouseButton(0))
+        {
+            if (Physics.Raycast(ray, out rayHit))
+            {
+                placeCharacter = rayHit.transform.gameObject;
+                placeCharacter.transform.position = new Vector3(rayHit.point.x, rayHit.point.y, 5);
+            }
+        }
+    }
+
 
     public void PickRabbit(int idx)
     {
@@ -73,12 +100,6 @@ public class SetRabbitMode : MonoBehaviour
             return;
         
         //Characters[idx]
-    }
-
-    public void BookmarkCharacter()
-    {
-        characters2.Add(1, spawnCharacter);
-
     }
 
     public void OpenUICharacterList()

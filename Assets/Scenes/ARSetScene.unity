@@ -5024,6 +5024,9 @@ MonoBehaviour:
   go: {fileID: 283131630}
   UISetModeMenu: {fileID: 6067681609505796283}
   UICharacterList: {fileID: 1720029094}
+  Rabbit:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!4 &339756259
 Transform:
   m_ObjectHideFlags: 0

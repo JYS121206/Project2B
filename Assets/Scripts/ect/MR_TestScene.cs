@@ -37,7 +37,7 @@ public class MR_TestScene : MonoBehaviour
 
     void Update()
     {
-        GetRabbitMode();
+        //GetRabbitMode();
     }
 
     public void GetRabbitMode()
@@ -59,7 +59,6 @@ public class MR_TestScene : MonoBehaviour
                 {
                     if (Physics.Raycast(ray, out hit))
                     {
-                        Debug.Log(hit.transform.gameObject);
                         target = hit.transform.gameObject;
                         UIPopRUGet.SetActive(true);
                         Debug.Log(hit.transform.name + "가 나타났다.");
@@ -79,9 +78,7 @@ public class MR_TestScene : MonoBehaviour
     public void OpenGetRB()
     {
         UIPopRUGet.SetActive(false);
-        Debug.Log("111");
         GetRabbitTest();
-        Debug.Log("222");
         UIPopGetRB.SetActive(true);
 
     }
@@ -108,8 +105,6 @@ public class MR_TestScene : MonoBehaviour
 
         for (int i = 0; i < characterManagerT.Character.Count; i++)
         {
-            Debug.Log("포문시작");
-
             if (characterManagerT.Character[i].characterName + "(Clone)" == name)
             {
                 x = i;
