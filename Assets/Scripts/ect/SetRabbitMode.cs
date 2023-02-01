@@ -12,15 +12,17 @@ public class SetRabbitMode : MonoBehaviour
 
     Dictionary<int, GameObject> characters = new Dictionary<int, GameObject>();
 
+    CharacterManager1 characterManager;
+
 
     void Start()
     {
-
+        characterManager = CharacterManager1.GetInstance();
     }
 
     void Update()
     {
-
+        PlaceObject();
     }
 
     private void PlaceObject()
