@@ -296,10 +296,7 @@ public class OrnaBookBtns : MonoBehaviour
     //     }
     // }
 
-    public void Lock(int num)
-    {
-        Debug.Log($"캐릭터 {num + 1}의 정보를 열람할 수 없습니다");
-    }
+    
 
 
     #region OrnaBtnsActive

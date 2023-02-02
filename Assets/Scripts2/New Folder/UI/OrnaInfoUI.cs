@@ -44,6 +44,7 @@ public class OrnaInfoUI : MonoBehaviour
     private void Start()
     {
         listClose.onClick.AddListener(CloseOrnaInfo); // 가구 설명 리스트 닫기
+        
     }
 
     public void SetRoomData()
@@ -103,7 +104,7 @@ public class OrnaInfoUI : MonoBehaviour
                 ornaImage.sprite = Resources.Load<Sprite>($"OrnaUI/{OrnamentManager.GetInstance()._ornamentsList[i][ornaidx].prefabName}");  // 이미지 로드
                 btnOrnaPick[ornaidx].gameObject.SetActive(true);
 
-                ornaRoomObjs.GetComponent<OrnaRoomObj>().LoadOrnaObj(ornaidx);
+                //ornaRoomObjs.GetComponent<OrnaRoomObj>().LoadOrnaObj(ornaidx);
             }
         }
     }

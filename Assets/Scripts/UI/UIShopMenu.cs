@@ -27,6 +27,7 @@ public class UIShopMenu : MonoBehaviour
         btnToMain2.onClick.AddListener(() => { ScenesManager.GetInstance().ChangeScene(Scene.Main2); });
         btnTestOpen.onClick.AddListener(TestOpen);
         btnTestClose.onClick.AddListener(TestClose);
+        btnToMain2.gameObject.SetActive(false);
     }
 
     public void SetCoin()

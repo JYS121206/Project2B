@@ -50,6 +50,7 @@ public class OrnaRoomObj : MonoBehaviour
            }
        }
 
+       //if ()
         lROrnaList.gameObject.SetActive(false);
         yaOrnaList.gameObject.SetActive(false);
 
@@ -130,6 +131,8 @@ public class OrnaRoomObj : MonoBehaviour
         }  
     }
 
+
+    #region
     public void ResoLoadOrna()
     {
        // for (int i = 0; i < OrnamentManager.GetInstance()._ornamentsList.Count; i++)
@@ -170,6 +173,9 @@ public class OrnaRoomObj : MonoBehaviour
 
         // ornaBookBtns.OrnaActive(num);
     }
+
+    #endregion
+
 
     public void BuyOrna(string buyRoomnum , int buyOrnanum)
     {
