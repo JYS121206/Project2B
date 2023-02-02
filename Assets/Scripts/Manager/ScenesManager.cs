@@ -12,7 +12,8 @@ public enum Scene
     CharacterList,
     Shop,
     ARSetScene,
-    MiniGame
+    MiniGame,
+    Main2
 }
 
 public class ScenesManager : MonoBehaviour

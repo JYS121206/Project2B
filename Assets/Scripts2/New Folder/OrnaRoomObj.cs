@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,6 +19,10 @@ public class OrnaRoomObj : MonoBehaviour
     public GameObject[] bROrnament;
     public GameObject[] lROrnament;
     public GameObject[] yaOrnament;
+
+    OrnaBookBtns ornaBookBtns;
+
+    OrnamentManager ornamentManager;
     private void Awake()
     {
         ornaRoom = GameObject.FindGameObjectWithTag("OrnaRoom");
@@ -25,28 +30,26 @@ public class OrnaRoomObj : MonoBehaviour
         bROrnament = new GameObject[OrnamentManager.GetInstance()._ornamentsList[0].Length];
         lROrnament = new GameObject[OrnamentManager.GetInstance()._ornamentsList[1].Length];
         yaOrnament = new GameObject[OrnamentManager.GetInstance()._ornamentsList[2].Length];
+        Debug.Log($"으아아아아{bROrnament.Length}");
+        
+        bROrnament = GameObject.FindGameObjectsWithTag("BROrna");
+        lROrnament = GameObject.FindGameObjectsWithTag("LROrna");
+        yaOrnament = GameObject.FindGameObjectsWithTag("YaOrna");
+        
 
-        for (int i = 0; i < OrnamentManager.GetInstance()._ornamentsList.Count; i++)
-        {
-            bROrnament = GameObject.FindGameObjectsWithTag("BROrna");
-            lROrnament = GameObject.FindGameObjectsWithTag("LROrna");
-            yaOrnament = GameObject.FindGameObjectsWithTag("YaOrna");
-        }
+       for (int j = 0; j < OrnamentManager.GetInstance()._ornamentsList.Count; j++)
+       {
+           for (int i = 0; i < OrnamentManager.GetInstance()._ornamentsList[j].Length; i++)
+           {
+               if (j == 0)
+               bROrnament[i].gameObject.SetActive(false);
+               else if (j == 1)
+               lROrnament[i].gameObject.SetActive(false);
+               else if (j == 2)
+               yaOrnament[i].gameObject.SetActive(false);
+           }
+       }
 
-        for (int j = 0; j < OrnamentManager.GetInstance()._ornamentsList.Count; j++)
-        {
-            for (int i = 0; i < OrnamentManager.GetInstance()._ornamentsList[j].Length; i++)
-            {
-                if (j == 0)
-                bROrnament[i].gameObject.SetActive(false);
-                else if (j == 1)
-                lROrnament[i].gameObject.SetActive(false);
-                else if (j == 2)
-                yaOrnament[i].gameObject.SetActive(false);
-            }
-        }
-
-        bROrnaList.gameObject.SetActive(false);
         lROrnaList.gameObject.SetActive(false);
         yaOrnaList.gameObject.SetActive(false);
 
@@ -55,6 +58,8 @@ public class OrnaRoomObj : MonoBehaviour
 
     private void Start()
     {
+        
+
         /////////////////// 샵 구매 버튼 작용 //////////////////////
 
         // for (int i = 0; i < OrnamentManager.GetInstance()._ornamentsList.Count; i++)
@@ -73,64 +78,100 @@ public class OrnaRoomObj : MonoBehaviour
 
         ////////////////////////////////////////////////////////////
 
-       
+
 
 
 
     }
 
-     // private void Update()
-     // {
-     //    
-     // }
+    // private void Update()
+    // {
+    //    
+    // }
 
+    // private void Update()
+    // {
+    //     ResoLoadOrna();
+    // }
     public void LoadOrnaObj(int ornaidx)
     {
-        if (ornaRoom.GetComponent<OrnaRoom>().room[0].activeSelf == true && bROrnament[ornaidx].activeSelf == false)
-               bROrnament[ornaidx].gameObject.SetActive(true);
-        else  if(ornaRoom.GetComponent<OrnaRoom>().room[0].activeSelf == true && bROrnament[ornaidx].activeSelf == true)
-                bROrnament[ornaidx].gameObject.SetActive(false);
-        
+        if (ornaRoom.GetComponent<OrnaRoom>().room[0].activeSelf == true && OrnamentManager.GetInstance()._ornamentsList[0][ornaidx].pick == false)
+        {
+            OrnamentManager.GetInstance()._ornamentsList[0][ornaidx].pick = true;
+            bROrnament[ornaidx].gameObject.SetActive(OrnamentManager.GetInstance()._ornamentsList[0][ornaidx].pick);
+        }
+        else if (ornaRoom.GetComponent<OrnaRoom>().room[0].activeSelf == true && OrnamentManager.GetInstance()._ornamentsList[0][ornaidx].pick == true)
+        {
+            OrnamentManager.GetInstance()._ornamentsList[0][ornaidx].pick = false;
+            bROrnament[ornaidx].gameObject.SetActive(OrnamentManager.GetInstance()._ornamentsList[0][ornaidx].pick);
+        }
 
-        if (ornaRoom.GetComponent<OrnaRoom>().room[1].activeSelf == true && lROrnament[ornaidx].activeSelf == false)
-                lROrnament[ornaidx].gameObject.SetActive(true);
-        else if (ornaRoom.GetComponent<OrnaRoom>().room[1].activeSelf == true && lROrnament[ornaidx].activeSelf == true)
-                lROrnament[ornaidx].gameObject.SetActive(false);
-        
+        if (ornaRoom.GetComponent<OrnaRoom>().room[1].activeSelf == true && OrnamentManager.GetInstance()._ornamentsList[1][ornaidx].pick == false)
+        {
+            OrnamentManager.GetInstance()._ornamentsList[1][ornaidx].pick = true;
+            lROrnament[ornaidx].gameObject.SetActive(OrnamentManager.GetInstance()._ornamentsList[1][ornaidx].pick);
+        }
+        else if (ornaRoom.GetComponent<OrnaRoom>().room[1].activeSelf == true && OrnamentManager.GetInstance()._ornamentsList[1][ornaidx].pick == true)
+        {
+            OrnamentManager.GetInstance()._ornamentsList[1][ornaidx].pick = false;
+            lROrnament[ornaidx].gameObject.SetActive(OrnamentManager.GetInstance()._ornamentsList[1][ornaidx].pick);
+        }
 
-        if (ornaRoom.GetComponent<OrnaRoom>().room[2].activeSelf == true && yaOrnament[ornaidx].activeSelf == false)
-                yaOrnament[ornaidx].gameObject.SetActive(true);
-        else if (ornaRoom.GetComponent<OrnaRoom>().room[2].activeSelf == true && yaOrnament[ornaidx].activeSelf == true)
-                yaOrnament[ornaidx].gameObject.SetActive(false);
-        
+
+        if (ornaRoom.GetComponent<OrnaRoom>().room[2].activeSelf == true && OrnamentManager.GetInstance()._ornamentsList[2][ornaidx].pick == false)
+        {
+            OrnamentManager.GetInstance()._ornamentsList[2][ornaidx].pick = true;
+            yaOrnament[ornaidx].gameObject.SetActive(OrnamentManager.GetInstance()._ornamentsList[2][ornaidx].pick);
+        }
+        else if (ornaRoom.GetComponent<OrnaRoom>().room[2].activeSelf == true && OrnamentManager.GetInstance()._ornamentsList[2][ornaidx].pick == true)
+        {
+            OrnamentManager.GetInstance()._ornamentsList[2][ornaidx].pick = false;
+            yaOrnament[ornaidx].gameObject.SetActive(OrnamentManager.GetInstance()._ornamentsList[2][ornaidx].pick);
+        }  
     }
 
     public void ResoLoadOrna()
     {
-        for (int i = 0; i < OrnamentManager.GetInstance()._ornamentsList.Count; i++)
-        {
-            for (int j = 0; j < OrnamentManager.GetInstance()._ornamentsList[i].Length; j++)
-            {
-                if (i == 0)
-                {
-                    bROrnament[j] = Resources.Load<GameObject>($"Ornaments/{OrnamentManager.GetInstance()._ornamentsList[i][j].prefabName}");
-                    bROrnament[i].gameObject.SetActive(false);
-                }
-                else if (i == 1)
-                {
-                    lROrnament[j] = Resources.Load<GameObject>($"Ornaments/{OrnamentManager.GetInstance()._ornamentsList[i][j].prefabName}");
-                    lROrnament[i].gameObject.SetActive(false);
-                }
-                else if (i == 2)
-                {
-                    yaOrnament[j] = Resources.Load<GameObject>($"Ornaments/{OrnamentManager.GetInstance()._ornamentsList[i][j].prefabName}");
-                    yaOrnament[i].gameObject.SetActive(false);
-                }
-            }
-        }
+       // for (int i = 0; i < OrnamentManager.GetInstance()._ornamentsList.Count; i++)
+       // {
+       //     for (int j = 0; j < OrnamentManager.GetInstance()._ornamentsList[i].Length; j++)
+       //     {
+       //         if (i == 0)
+       //         {
+       //             if (OrnamentManager.GetInstance()._ornamentsList[i][j].getOrnament == true)
+       //             {
+       //                 bROrnament[j] = Resources.Load<GameObject>($"Ornaments/{OrnamentManager.GetInstance()._ornamentsList[i][j].prefabName}");
+       //                 bROrnament[j].gameObject.SetActive(false);
+       //             }
+       //             else { }
+       //         }
+       //         else if (i == 1)
+       //         {
+       //             if (OrnamentManager.GetInstance()._ornamentsList[i][j].getOrnament == true)
+       //             {
+       //                 lROrnament[j] = Resources.Load<GameObject>($"Ornaments/{OrnamentManager.GetInstance()._ornamentsList[i][j].prefabName}");
+       //                 lROrnament[j].gameObject.SetActive(false);
+       //             }
+       //             else { }
+       //         }
+       //         else if (i == 2)
+       //         {
+       //             if (OrnamentManager.GetInstance()._ornamentsList[i][j].getOrnament == true)
+       //             {
+       //                 yaOrnament[j] = Resources.Load<GameObject>($"Ornaments/{OrnamentManager.GetInstance()._ornamentsList[i][j].prefabName}");
+       //                 yaOrnament[j].gameObject.SetActive(false);
+       //             }
+       //             else { }
+       //         }
+       //     }
+       // }
+
+
+
+        // ornaBookBtns.OrnaActive(num);
     }
 
-    public void BuyOrna(int buyRoomnum , int buyOrnanum)
+    public void BuyOrna(string buyRoomnum , int buyOrnanum)
     {
         for (int i = 0; i < OrnamentManager.GetInstance()._ornamentsList.Count; i++)
         {
@@ -166,4 +207,6 @@ public class OrnaRoomObj : MonoBehaviour
         yaOrnaList.gameObject.SetActive(true);
     }
 
+
+    
 }

@@ -11,6 +11,7 @@ public class UIShopMenu : MonoBehaviour
     int myCoin;
 
     public Button btnToMain;
+    public Button btnToMain2;
 
     public GameObject UIItemList;
     public GameObject UIItem;
@@ -23,6 +24,7 @@ public class UIShopMenu : MonoBehaviour
     {
         SetCoin();
         btnToMain.onClick.AddListener(() => { ScenesManager.GetInstance().ChangeScene(Scene.Main1); });
+        btnToMain2.onClick.AddListener(() => { ScenesManager.GetInstance().ChangeScene(Scene.Main2); });
         btnTestOpen.onClick.AddListener(TestOpen);
         btnTestClose.onClick.AddListener(TestClose);
     }

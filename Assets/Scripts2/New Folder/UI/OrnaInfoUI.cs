@@ -8,7 +8,7 @@ public class OrnaInfoUI : MonoBehaviour
 {
     [SerializeField] private Text txtOrnasName;
 
-    [SerializeField] private GameObject gObjOrnaInfo;
+    //[SerializeField] private GameObject gObjOrnaInfo;
 
     [SerializeField] private GameObject pick;
 
@@ -102,6 +102,8 @@ public class OrnaInfoUI : MonoBehaviour
                 ornaImage.gameObject.SetActive(true);
                 ornaImage.sprite = Resources.Load<Sprite>($"OrnaUI/{OrnamentManager.GetInstance()._ornamentsList[i][ornaidx].prefabName}");  // 이미지 로드
                 btnOrnaPick[ornaidx].gameObject.SetActive(true);
+
+                ornaRoomObjs.GetComponent<OrnaRoomObj>().LoadOrnaObj(ornaidx);
             }
         }
     }
