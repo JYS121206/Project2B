@@ -133,4 +133,6 @@ public class OrnaInfoUI : MonoBehaviour
         ornaRoomObjs.GetComponent<OrnaRoomObj>().LoadOrnaObj(ornaPickidx);
     }
     
+
+    
 }

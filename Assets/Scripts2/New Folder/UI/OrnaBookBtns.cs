@@ -16,6 +16,8 @@ public class OrnaBookBtns : MonoBehaviour
 
     [SerializeField] private Button Close;
 
+    [SerializeField] private GameObject ornaRoomObj;
+
     private GameObject ornaRoom;
 
     private GameObject OrnaInfoUI;
@@ -39,6 +41,7 @@ public class OrnaBookBtns : MonoBehaviour
         btnOrnaList2.onClick.AddListener(OpenOrnaList);
 
         
+
         // for (int i = 0; i < OrnamentManager.GetInstance()._ornamentsList.Count; i++)
         // {
         //     if (ornaRoom.GetComponent<OrnaRoom>().room[i].activeSelf == true)
@@ -65,6 +68,7 @@ public class OrnaBookBtns : MonoBehaviour
     {
         Close.onClick.AddListener(CloseOrnaList); // 도감 닫기 버튼클릭
 
+        OrnaBookBtn();
         // for (int i = 0; i < ornaBookBtn.Length; i++) // 도감 가구 설명열기 버튼클릭
         // {
         //     int bookBtnsidx = i;
@@ -141,7 +145,7 @@ public class OrnaBookBtns : MonoBehaviour
                 ornaBookBtn = new Button[OrnamentManager.GetInstance()._ornamentsList[i].Length];
                 txtBtnOrnaName = new Text[OrnamentManager.GetInstance()._ornamentsList[i].Length];
                 
-
+       
                 for (int j = 0; j < OrnamentManager.GetInstance()._ornamentsList[i].Length; j++)
                 {
                     if (j < OrnamentManager.GetInstance()._ornamentsList[i].Length)
@@ -150,7 +154,7 @@ public class OrnaBookBtns : MonoBehaviour
                         ornaBookBtn[j] = ornaBookBtns.GetComponentsInChildren<Button>()[j];
                         txtBtnOrnaName[j] = ornaBookBtns.GetComponentsInChildren<Text>()[j];
                     }
-
+       
                     else
                         ornaBookBtn[j].gameObject.SetActive(false);
                 }
@@ -166,12 +170,55 @@ public class OrnaBookBtns : MonoBehaviour
             {
                 for (int j = 0; j < OrnamentManager.GetInstance()._ornamentsList[i].Length; j++)
                 {
-                    ornaBookBtn[j].gameObject.SetActive(true);
-                    txtBtnOrnaName[j].text = OrnamentManager.GetInstance()._ornamentsList[i][j].ornamentName;
-                    imgBtnOrnaImage[j].sprite = Resources.Load<Sprite>($"OrnaUI/{OrnamentManager.GetInstance()._ornamentsList[i][j].prefabName}");
+                    int idx = j;
+
+                    if (i == 0)
+                    {
+                        ornaBookBtn[j].gameObject.SetActive(true);
+                        txtBtnOrnaName[j].text = OrnamentManager.GetInstance()._ornamentsList[i][j].ornamentName;
+                        imgBtnOrnaImage[j].sprite = Resources.Load<Sprite>($"OrnaUI/{OrnamentManager.GetInstance()._ornamentsList[i][j].prefabName}");
+                    }
+                    else
+                    {
+                        imgBtnOrnaImage[j].sprite = Resources.Load<Sprite>($"Image/lock");
+                        txtBtnOrnaName[j].text = $"???";
+                        ornaBookBtn[j].onClick.AddListener(() => { Lock(idx); });
+                    }
+
+                    if (i == 1)
+                    {
+                        ornaBookBtn[j].gameObject.SetActive(true);
+                        txtBtnOrnaName[j].text = OrnamentManager.GetInstance()._ornamentsList[i][j].ornamentName;
+                        imgBtnOrnaImage[j].sprite = Resources.Load<Sprite>($"OrnaUI/{OrnamentManager.GetInstance()._ornamentsList[i][j].prefabName}");
+                    }
+                    else
+                    {
+                        imgBtnOrnaImage[j].sprite = Resources.Load<Sprite>($"Image/lock");
+                        txtBtnOrnaName[j].text = $"???";
+                        ornaBookBtn[j].onClick.AddListener(() => { Lock(idx); });
+                    }
+
+                    if (i == 2)
+                    {
+                        ornaBookBtn[j].gameObject.SetActive(true);
+                        txtBtnOrnaName[j].text = OrnamentManager.GetInstance()._ornamentsList[i][j].ornamentName;
+                        imgBtnOrnaImage[j].sprite = Resources.Load<Sprite>($"OrnaUI/{OrnamentManager.GetInstance()._ornamentsList[i][j].prefabName}");
+                    }
+                    else
+                    { 
+                        imgBtnOrnaImage[j].sprite = Resources.Load<Sprite>($"Image/lock");
+                        txtBtnOrnaName[j].text = $"???";
+                        ornaBookBtn[j].onClick.AddListener(() => { Lock(idx); });
+                    }
                 }
             }
         }
 
+    }
+
+
+    public void Lock(int num)
+    {
+        Debug.Log($"캐릭터 {num + 1}의 정보를 열람할 수 없습니다");
     }
 }
