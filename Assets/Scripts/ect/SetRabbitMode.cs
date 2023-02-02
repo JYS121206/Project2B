@@ -22,10 +22,10 @@ public class SetRabbitMode : MonoBehaviour
     Ray ray;
     RaycastHit rayHit;
 
-    public LayerMask Rabbit;
+    private Transform selectedRabbit = null;
+    private Vector3 selectedDistance;
 
-    Camera cam;
-
+    private bool isSpawning = false;
 
     void Start()
     {
@@ -34,8 +34,7 @@ public class SetRabbitMode : MonoBehaviour
 
     void Update()
     {
-        //PlaceObject();
-        PlaceCharacter();
+        PlaceObject();
     }
 
     private void PlaceObject()
@@ -44,62 +43,89 @@ public class SetRabbitMode : MonoBehaviour
         {
             Touch touch = Input.GetTouch(0);
 
-            List<ARRaycastHit> hits = new List<ARRaycastHit>();
-            if(arRaycaster.Raycast(touch.position, hits, UnityEngine.XR.ARSubsystems.TrackableType.Planes))
-            {
-                Pose hitPose = hits[0].pose;
+            RaycastHit hit;
+            ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
 
-                if(Physics.Raycast(ray, out rayHit, Rabbit))
-                {
-                    spawnCharacter = rayHit.transform.gameObject;
-                    spawnCharacter.transform.position = transform.position = hitPose.position;
-                }
-                
-                //if (spawnCharacter == null)
-                //    spawnCharacter = Instantiate(characters, hitPose.position, hitPose.rotation);
-                //else
-                //{
-                //    spawnCharacter.transform.position = hitPose.position; 
-                //    spawnCharacter.transform.rotation = hitPose.rotation;
-                //}
-                    
+            int rabbitLayer = 1 << LayerMask.NameToLayer("Rabbit");
+            bool hitRabbit = Physics.Raycast(ray, out hit, Mathf.Infinity, rabbitLayer);
+
+            switch (touch.phase)
+            {
+                case TouchPhase.Began:
+                    if (hitRabbit)
+                    {
+                        selectedRabbit = hit.transform;
+                        selectedDistance = selectedRabbit.position - Camera.main.transform.position;
+                    }
+                    break;
+
+                case TouchPhase.Moved:
+                case TouchPhase.Stationary:
+                    if (selectedRabbit == null)
+                        return;
+
+                    Vector3 movePos = Vector3.zero;
+                    Quaternion lookDir = Quaternion.LookRotation(selectedRabbit.transform.position, Camera.main.transform.position);
+
+                    List<ARRaycastHit> hits = new List<ARRaycastHit>();
+                    if (arRaycaster.Raycast(touch.position, hits, UnityEngine.XR.ARSubsystems.TrackableType.Planes))
+                        movePos = hits[0].pose.position;
+                    else
+                        movePos = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position) + selectedDistance;
+
+                    selectedRabbit.position = Vector3.Lerp(selectedRabbit.transform.position, movePos, Time.deltaTime * 5);
+                    break;
+
+                case TouchPhase.Ended:
+                case TouchPhase.Canceled:
+                    selectedRabbit = null;
+                    break;
             }
         }
     }
 
-    public void PlaceCharacter()
-    {
-        GameObject placeCharacter;
-
-        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-        if (Input.GetMouseButton(0))
-        {
-            if (Physics.Raycast(ray, out rayHit))
-            {
-                placeCharacter = rayHit.transform.gameObject;
-                placeCharacter.transform.position = new Vector3(rayHit.point.x, rayHit.point.y, 5);
-            }
-        }
-    }
 
 
     public void PickRabbit(int idx)
     {
-        Debug.Log("aaaa");
-        int placeCharacter = 0;
-
-        if (spawnCharacter == null)
-        {
-            Debug.Log("bbb");
-            spawnCharacter = (GameObject)Instantiate(characters[idx], go.transform);
-            
-            placeCharacter++;
-        }
-        if (placeCharacter >= 2)
+        if (isSpawning)
             return;
-        
-        //Characters[idx]
+
+        StartCoroutine(SpawnRabbit(characters[idx]));
+    }
+
+    IEnumerator SpawnRabbit(GameObject rabbit)
+    {
+        isSpawning = true;
+
+        var originSize = rabbit.transform.localScale;
+        var screenCenter = new Vector3(Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2);
+        var centerPos = Camera.main.ScreenToWorldPoint(screenCenter);
+        var spawnedRabbit = Instantiate(rabbit, centerPos + Camera.main.transform.forward, Quaternion.identity);
+        spawnedRabbit.transform.localScale = Vector3.zero;
+        spawnedRabbit.transform.LookAt(Camera.main.transform);
+
+        while (true)
+        {
+            Vector3 scale = Vector3.Lerp(spawnedRabbit.transform.localScale, originSize, Time.deltaTime * 4);
+            spawnedRabbit.transform.localScale = scale;
+
+            if (scale.x > originSize.x - 0.005f)
+            {
+                spawnedRabbit.transform.localScale = originSize;
+                break;
+            }
+
+            yield return null;
+        }
+
+        isSpawning = false;
+    }
+
+    public void BookmarkCharacter()
+    {
+        characters2.Add(1, spawnCharacter);
+
     }
 
     public void OpenUICharacterList()

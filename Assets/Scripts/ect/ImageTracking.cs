@@ -10,6 +10,9 @@ public class ImageTracking : MonoBehaviour
     [SerializeField]
     private GameObject[] placeablePrefabs;
 
+    [SerializeField]
+    Transform SpawnPosition;
+
     private Dictionary<string, GameObject> spawnedPrdfabs = new Dictionary<string, GameObject>();
     private ARTrackedImageManager trackedImageManager;
 
@@ -19,9 +22,16 @@ public class ImageTracking : MonoBehaviour
 
         foreach(GameObject prefab in placeablePrefabs)
         {
+
             GameObject newPrefab = Instantiate(prefab, Vector3.zero, Quaternion.identity);
+            newPrefab.transform.rotation = SpawnPosition.rotation;
             newPrefab.name = prefab.name;
             spawnedPrdfabs.Add(prefab.name, newPrefab);
+
+            newPrefab.gameObject.SetActive(false);
+
+            //else
+                //newPrefab.gameObject.SetActive(false);
         }
     }
 
@@ -58,6 +68,7 @@ public class ImageTracking : MonoBehaviour
 
         GameObject prefab = spawnedPrdfabs[name];
         prefab.transform.position = position;
+        
         prefab.SetActive(true);
 
         foreach(GameObject go in spawnedPrdfabs.Values)
