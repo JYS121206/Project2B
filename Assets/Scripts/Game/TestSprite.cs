@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class TestSprite : MonoBehaviour
 {
+    float setSize;
+
+
     public GameObject player;
     public GameObject objGameOver;
 
@@ -17,10 +19,25 @@ public class TestSprite : MonoBehaviour
 
     int curT;
     int curF;
+    public float ChangeSize(float cursize)
+    {
+        float height = Camera.main.orthographicSize * 2;
+        float width = height * Screen.width / Screen.height;
 
-
+        float size = (width / 5.625f) * cursize;
+        return size;
+    }
+    
     void Start()
     {
+        float height = Camera.main.orthographicSize * 2;
+        float width = height * Screen.width / Screen.height;
+        Debug.Log($"height: {height} | width: {width}");
+
+        gameObject.transform.localScale = new Vector3(ChangeSize(1), ChangeSize(1), ChangeSize(1));
+        gameObject.transform.position = new Vector3(0, 0, 0);
+
+
         for (int i = 0; i < objGroup.Length; i++)
         {
             boardList[i] = GetComponentsInChildren<board>()[i];
@@ -40,15 +57,15 @@ public class TestSprite : MonoBehaviour
         for (int i = 0; i < objGroup.Length; i++)
         {
             float y = objGroup[i].transform.position.y;
-            y -= 4;
-
-            objGroup[i].transform.position = new Vector3(-0.6535448f, y, 0);
+            y -= ChangeSize(4);
+            
+            objGroup[i].transform.position = new Vector3(-ChangeSize(0.6535448f), y, 0);
         }
         x = (x + 1) % (3 + 1);
 
         float y2 = objGroup[x].transform.position.y;
-        y2 += 16;
-        objGroup[x].transform.position = new Vector3(-0.6535448f, y2, 0);
+        y2 += ChangeSize(16);
+        objGroup[x].transform.position = new Vector3(-ChangeSize(0.6535448f), y2, 0);
 
         LeftRight(x);
 
@@ -133,15 +150,15 @@ public class TestSprite : MonoBehaviour
     public void JumpL()
     {
         float x = player.transform.position.x;
-        x -= 0.75f;
-        player.transform.position = new Vector3(x, -1.5f, 0);
+        x -= ChangeSize(0.75f);
+        player.transform.position = new Vector3(x, -ChangeSize(1.5f), 0);
         UpDown();
     }
     public void JumpR()
     {
         float x = player.transform.position.x;
-        x += 0.75f;
-        player.transform.position = new Vector3(x, -1.5f, 0);
+        x += ChangeSize(0.75f);
+        player.transform.position = new Vector3(x, -ChangeSize(1.5f), 0);
         UpDown();
     }
 

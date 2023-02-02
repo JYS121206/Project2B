@@ -21,8 +21,4 @@ public class SetSize : MonoBehaviour
         gameObject.transform.localScale = new Vector3(setSize, setSize, setSize);
         gameObject.transform.position = new Vector3(0, 0, 0);
     }
-
-    private void Update()
-    {
-    }
 }
