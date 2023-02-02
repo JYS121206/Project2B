@@ -123,6 +123,36 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &143877296
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 143877297}
+  m_Layer: 0
+  m_Name: SpwanPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &143877297
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143877296}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: -0.3, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &172617942
 GameObject:
   m_ObjectHideFlags: 0
@@ -4988,9 +5018,6 @@ MonoBehaviour:
   go: {fileID: 0}
   UISetModeMenu: {fileID: 0}
   UICharacterList: {fileID: 0}
-  Rabbit:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!4 &339756259
 Transform:
   m_ObjectHideFlags: 0
@@ -5287,19 +5314,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 863259152037767260, guid: 951c05763b297ef4e87957095f62e240,
         type: 3}
-      propertyPath: ListGroup
+      propertyPath: btnMenu
       value: 
       objectReference: {fileID: 963735750}
     - target: {fileID: 863259152037767260, guid: 951c05763b297ef4e87957095f62e240,
         type: 3}
+      propertyPath: ListGroup
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 863259152037767260, guid: 951c05763b297ef4e87957095f62e240,
+        type: 3}
       propertyPath: btnToMain
       value: 
-      objectReference: {fileID: 963735749}
+      objectReference: {fileID: 963735754}
     - target: {fileID: 863259152037767260, guid: 951c05763b297ef4e87957095f62e240,
         type: 3}
       propertyPath: btnToMain2
       value: 
-      objectReference: {fileID: 963735754}
+      objectReference: {fileID: 963735749}
     - target: {fileID: 863259152037767260, guid: 951c05763b297ef4e87957095f62e240,
         type: 3}
       propertyPath: UIMenuGroup
@@ -5309,12 +5341,12 @@ PrefabInstance:
         type: 3}
       propertyPath: btnOpenList
       value: 
-      objectReference: {fileID: 963735752}
+      objectReference: {fileID: 0}
     - target: {fileID: 863259152037767260, guid: 951c05763b297ef4e87957095f62e240,
         type: 3}
       propertyPath: btnCloseList
       value: 
-      objectReference: {fileID: 963735751}
+      objectReference: {fileID: 0}
     - target: {fileID: 863259152037767260, guid: 951c05763b297ef4e87957095f62e240,
         type: 3}
       propertyPath: GetRabbitMode
@@ -5379,6 +5411,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -428.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 2762882517644126472, guid: 951c05763b297ef4e87957095f62e240,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2762882517644126477, guid: 951c05763b297ef4e87957095f62e240,
         type: 3}
@@ -5765,27 +5802,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &963735750 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7773851475745982836, guid: 951c05763b297ef4e87957095f62e240,
-    type: 3}
-  m_PrefabInstance: {fileID: 963735748}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &963735751 stripped
+--- !u!114 &963735750 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3339103500571893851, guid: 951c05763b297ef4e87957095f62e240,
-    type: 3}
-  m_PrefabInstance: {fileID: 963735748}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &963735752 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3216048574636287111, guid: 951c05763b297ef4e87957095f62e240,
+  m_CorrespondingSourceObject: {fileID: 2762882517644126595, guid: 951c05763b297ef4e87957095f62e240,
     type: 3}
   m_PrefabInstance: {fileID: 963735748}
   m_PrefabAsset: {fileID: 0}
@@ -6352,12 +6371,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   placeablePrefabs:
-  - {fileID: 3137616458487580980, guid: 76ecd2b0f93bf6543948fd2f827230cf, type: 3}
+  - {fileID: 7899798200206091580, guid: 081749654d5ad994d954bdd1be5a9f77, type: 3}
   - {fileID: 1110248076958421064, guid: ea67b231e561dc34bbfb10f3c590af22, type: 3}
-  - {fileID: 3137616458487580980, guid: ce5ac3970e8effa4bb17e24c631f563a, type: 3}
-  - {fileID: 3137616458487580980, guid: 11911a134fd6f97469df416e4e5356f5, type: 3}
-  - {fileID: 3137616458487580980, guid: fa5af990462e4594e8e1a2df4cb5c8c0, type: 3}
+  - {fileID: 7465645049654298944, guid: 4b94f9f1eb550c544ac7eae600f40bbc, type: 3}
+  - {fileID: 4244214017753680427, guid: ace30cfa0a94e684c81397dfe48c86e0, type: 3}
+  - {fileID: 8848883166147959018, guid: 3c8485b80a90e334980b5b5ff349d7f3, type: 3}
   - {fileID: 3137616458487580980, guid: 39aff1d54b33bed42a5a54ab2363b35b, type: 3}
+  SpawnPosition: {fileID: 143877297}
 --- !u!1 &1686102931 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1726204100171970949, guid: 951c05763b297ef4e87957095f62e240,

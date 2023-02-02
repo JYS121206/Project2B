@@ -5015,18 +5015,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arRaycaster: {fileID: 1659859604}
   characters:
-  - {fileID: 3137616458487580980, guid: 76ecd2b0f93bf6543948fd2f827230cf, type: 3}
+  - {fileID: 7899798200206091580, guid: 081749654d5ad994d954bdd1be5a9f77, type: 3}
   - {fileID: 1110248076958421064, guid: ea67b231e561dc34bbfb10f3c590af22, type: 3}
-  - {fileID: 3137616458487580980, guid: ce5ac3970e8effa4bb17e24c631f563a, type: 3}
-  - {fileID: 3137616458487580980, guid: 11911a134fd6f97469df416e4e5356f5, type: 3}
-  - {fileID: 3137616458487580980, guid: fa5af990462e4594e8e1a2df4cb5c8c0, type: 3}
+  - {fileID: 7465645049654298944, guid: 4b94f9f1eb550c544ac7eae600f40bbc, type: 3}
+  - {fileID: 4244214017753680427, guid: ace30cfa0a94e684c81397dfe48c86e0, type: 3}
+  - {fileID: 8848883166147959018, guid: 3c8485b80a90e334980b5b5ff349d7f3, type: 3}
   - {fileID: 3137616458487580980, guid: 39aff1d54b33bed42a5a54ab2363b35b, type: 3}
   go: {fileID: 283131630}
   UISetModeMenu: {fileID: 6067681609505796283}
   UICharacterList: {fileID: 1720029094}
-  Rabbit:
-    serializedVersion: 2
-    m_Bits: 256
 --- !u!4 &339756259
 Transform:
   m_ObjectHideFlags: 0
@@ -5951,7 +5948,7 @@ PrefabInstance:
     - target: {fileID: 5829924318043628735, guid: 0494ac9234e75d546b123280d73ebe28,
         type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.000000059604645
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6653665848925406267, guid: 0494ac9234e75d546b123280d73ebe28,
         type: 3}

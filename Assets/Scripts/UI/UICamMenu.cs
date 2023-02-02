@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class UICamMenu : MonoBehaviour
 {
     public Button btnToMain;
-    public Button btnSet;
+    public Button btnToMain2;
+    public Button btnMenu;
     public Button btnChangeMode;
-    public Button btnPrintSc;
 
     public Button btnOpenList;
     public Button btnCloseList;
@@ -17,7 +17,7 @@ public class UICamMenu : MonoBehaviour
     //public GameObject setRabbitMode;
     public GameObject UIMenuGroup;
 
-    public Button btnToMain2;
+    
 
     public Button[] btnBookmark = new Button[3];
 
@@ -34,7 +34,6 @@ public class UICamMenu : MonoBehaviour
     {
         camMode = true;
         UIMenuGroup.SetActive(false);
-        btnPrintSc.gameObject.SetActive(false);
         ListGroup.SetActive(false);
         btnOpenList.gameObject.SetActive(false);
 
@@ -45,42 +44,14 @@ public class UICamMenu : MonoBehaviour
 
         btnToMain.onClick.AddListener(ToMainScene);
         btnToMain2.onClick.AddListener(ToMainScene);
+        btnMenu.onClick.AddListener(OpenMenu);
+        btnChangeMode.onClick.AddListener(ToARSetScene);
 
     }
 
     void Update()
     {
         
-    }
-
-    public void ChangeMode()
-    {
-        if (btnPrintSc == null && ListGroup == null)
-            return;
-
-        if (camMode)
-        {
-            btnPrintSc.gameObject.SetActive(false);
-            ListGroup.SetActive(false);
-            btnOpenList.gameObject.SetActive(false);
-
-            //getRabbitMode.SetActive(true);
-            //setRabbitMode.SetActive(false);
-
-            camMode = false;
-
-        }
-        else
-        {
-            btnPrintSc.gameObject.SetActive(true);
-            ListGroup.SetActive(false);
-            btnOpenList.gameObject.SetActive(true);
-            
-            //getRabbitMode.SetActive(false);
-            //setRabbitMode.SetActive(true);
-            
-            camMode = true;
-        }
     }
 
     public void OpenMenu()
