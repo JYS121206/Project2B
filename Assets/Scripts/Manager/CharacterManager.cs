@@ -40,13 +40,13 @@ public class CharacterManager : MonoBehaviour
         //characterList.Add("토끼1", new Character("토끼1", false));
         Character = new Character[]
             {
-                //  Character( 이름   가격  get? 수량 북마크?)
-                new Character("Rabbit1", 600, false, 0, false),
-                new Character("Rabbit2", 500, false, 0, false),
-                new Character("Rabbit3", 200, false, 0, false),
-                new Character("Rabbit4", 400, false, 0, false),
-                new Character("RabbitNM", 10, false, 0, false),
-                new Character("RabbitSP", 5000, false, 0, false)
+                //  Character( 소스이름  한글이름  가격  get? 수량 북마크?)
+                new Character("Rabbit1", "미미",600, false, "미미", false),
+                new Character("Rabbit2", "폰데링",500, false, "미미", false),
+                new Character("Rabbit3", "설묘",200, false, "미미", false),
+                new Character("Rabbit4", "나나", 400, false, "미미", false),
+                new Character("RabbitNM", "찹쌀이", 10, false, "미미", false),
+                new Character("RabbitSP", "스페셜 토끼", 5000, false, "미미", false)
             };
     }
 

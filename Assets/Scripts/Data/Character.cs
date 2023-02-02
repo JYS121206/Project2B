@@ -5,17 +5,19 @@ using UnityEngine;
 public class Character
 {
     public string characterName;
+    public string korName;
     public int price;
     public bool getCharacter;
-    public int amount;
+    public string about;
     public bool isBookmark;
 
-    public Character(string characterName, int price, bool getCharacter, int amount, bool isBookmark)
+    public Character(string characterName, string korName, int price, bool getCharacter, string about, bool isBookmark)
     {
         this.characterName = characterName;
+        this.korName = korName;
         this.price = price;
         this.getCharacter = getCharacter;
-        this.amount = amount;
+        this.about = about;
         this.isBookmark = isBookmark;
     }
 

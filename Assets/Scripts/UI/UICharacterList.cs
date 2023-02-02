@@ -102,7 +102,7 @@ public class UICharacterList : MonoBehaviour
             if (characterManager.Character[idx].getCharacter)
             {
                 imgCharacter[i].sprite = Resources.Load<Sprite>($"Image/{characterManager.Character[i].characterName}");
-                txtProfile[i].text = $"{characterManager.Character[i].characterName}";
+                txtProfile[i].text = $"{characterManager.Character[i].korName}";
                 btnProfile[idx].onClick.RemoveAllListeners();
                 btnProfile[idx].onClick.AddListener(() => { OpenProfile(idx); });
             }
@@ -170,7 +170,7 @@ public class UICharacterList : MonoBehaviour
     public void SetProfile(int num)
     {
         imgProfile.sprite = Resources.Load<Sprite>($"Image/{characterManager.Character[num].characterName}");
-        txtName.text = $"{characterManager.Character[num].characterName}";
+        txtName.text = $"{characterManager.Character[num].korName}";
         txtAbout.text = $"캐릭터 설정 몰라";
 
         if(characterManager.Character[num].isBookmark)

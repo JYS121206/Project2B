@@ -104,7 +104,7 @@ public class UICharacterList1 : MonoBehaviour
             if (characterManager.Character[idx].getCharacter)
             {
                 imgCharacter[i].sprite = Resources.Load<Sprite>($"Image/{characterManager.Character[i].characterName}");
-                txtProfile[i].text = $"{characterManager.Character[i].characterName}";
+                txtProfile[i].text = $"{characterManager.Character[i].korName}";
                 btnProfile[idx].onClick.RemoveAllListeners();
                 btnProfile[idx].onClick.AddListener(() => { OpenProfile(idx); });
             }
@@ -172,10 +172,10 @@ public class UICharacterList1 : MonoBehaviour
     public void SetProfile(int num)
     {
         imgProfile.sprite = Resources.Load<Sprite>($"Image/NewFolder/{characterManager.Character[num].characterName}");
-        txtName.text = $"{characterManager.Character[num].characterName}";
-        txtAbout.text = $"캐릭터 설정 몰라";
+        txtName.text = $"{characterManager.Character[num].korName}";
+        txtAbout.text = $"{characterManager.Character[num].about}";
 
-        if(characterManager.Character[num].isBookmark)
+        if (characterManager.Character[num].isBookmark)
             btnGetBookmark.GetComponent<Image>().sprite = Resources.Load<Sprite>($"Image/bookmark2");
         else
             btnGetBookmark.GetComponent<Image>().sprite = Resources.Load<Sprite>($"Image/bookmark1");

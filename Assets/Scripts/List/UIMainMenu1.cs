@@ -171,18 +171,6 @@ public class UIMainMenu1 : MonoBehaviour
 
     }
 
-    public void fffff()
-    {
-        int rand = Random.Range(0, CharacterManager.GetInstance().Character.Length);
-
-        var ranCharacter = CharacterManager.GetInstance().Character[rand].characterName;
-
-        if (!CharacterManager.GetInstance().Character[rand].getCharacter)
-        { CharacterManager.GetInstance().Character[rand].getCharacter = true; }
-
-        CharacterManager.GetInstance().Character[rand].amount++;
-    }
-
     public void PickUp(int num)
     {
         characterManager.Pick = num;

@@ -16,6 +16,7 @@ public class UIShopList : MonoBehaviour
     public Button[] btnItem;      // 아이템 버튼
     public Text[] txtItem;        //아이템 이름
     public Image[] imgItem;       //아이템 이미지
+    public Image[] imgGetItem;    //구매한 아이템 표시 이미지
 
     public Image imgItemProfile;  //아이템 세부 이미지
     public Text txtItemProfile;   //아이템 세부 이름
@@ -51,12 +52,14 @@ public class UIShopList : MonoBehaviour
         btnItem = new Button[OrnaList.Length];
         txtItem = new Text[OrnaList.Length];
         imgItem = new Image[OrnaList.Length];
+        imgGetItem = new Image[OrnaList.Length];
 
         for (int i = 0; i < OrnaList.Length; i++)
         {
             btnItem[i] = GetComponentsInChildren<Button>()[i];
             txtItem[i] = GetComponentsInChildren<Text>()[i];
             imgItem[i] = btnItem[i].GetComponentsInChildren<Image>()[2];
+            imgGetItem[i] = btnItem[i].GetComponentsInChildren<Image>()[3];
             //겟컴포넌트 아이템 목록 UI
         }
 
@@ -90,7 +93,18 @@ public class UIShopList : MonoBehaviour
             txtItem[i].text = $"{OrnaList[i].ornamentName}";
             btnItem[index].onClick.RemoveAllListeners();
             btnItem[index].onClick.AddListener(() => { OpenItemProfile(index); });
+
+            SetGetUI(i);
         }
+    }
+
+    public void SetGetUI(int i)
+    {
+        var OrnaList = ornamentManager.GetOrnaList();
+        if (OrnaList[i].getOrnament)
+            imgGetItem[i].gameObject.SetActive(true);
+        else
+            imgGetItem[i].gameObject.SetActive(false);
     }
 
     public void OpenItemProfile(int num)
@@ -137,6 +151,7 @@ public class UIShopList : MonoBehaviour
 
             btnBuy.gameObject.GetComponentInChildren<Text>().text = $"구매 완료";
             OrnaList[num].getOrnament = true;
+            imgGetItem[num].gameObject.SetActive(true);
             btnBuy.onClick.RemoveAllListeners();
         }
         else

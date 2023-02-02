@@ -153,7 +153,7 @@ public class UIMainMenu : MonoBehaviour
         if (!CharacterManager.GetInstance().Character[rand].getCharacter)
         { CharacterManager.GetInstance().Character[rand].getCharacter = true; }
 
-        CharacterManager.GetInstance().Character[rand].amount++;
+        //CharacterManager.GetInstance().Character[rand].amount++;
     }
 
     public void PickUp(int num)
