@@ -42,6 +42,9 @@ public class UIMainMenu1 : MonoBehaviour
 
     UIMainMenu1 uIMainMenu1;
 
+    public GameObject imgGuide;
+    public GameObject imgTab;
+
     public void FullHeart(float curExp)
     {
         fullHeart.rectTransform.sizeDelta = new Vector2(100, curExp);
@@ -92,7 +95,11 @@ public class UIMainMenu1 : MonoBehaviour
         if (characterManager.Pick1st)
             ScenesManager.GetInstance().ChangeScene(Scene.MiniGame);
         else
+        {
             Debug.Log($"플레이 가능한 캐릭터가 없습니다. 대표 캐릭터를 설정해주세요.");
+            imgGuide.SetActive(true);
+            Invoke("CloseGuide", 0.7f);
+        }
     }
 
     public void SetCoin()
@@ -210,4 +217,19 @@ public class UIMainMenu1 : MonoBehaviour
         CloseList();
     }
 
+    public void CloseGuide()
+    {
+        imgGuide.SetActive(false);
+    }
+
+    public void PopTabEffect()
+    {
+        imgTab.SetActive(true);
+        Invoke("CloseTabEffect", 0.1f);
+    }
+
+    public void CloseTabEffect()
+    {
+        imgTab.SetActive(false);
+    }
 }

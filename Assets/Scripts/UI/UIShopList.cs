@@ -30,6 +30,7 @@ public class UIShopList : MonoBehaviour
     public Button btnTestCoin;
 
     OrnamentManager ornamentManager;
+    public GameObject imgGuide;
 
     public void GetCoin()
     {
@@ -157,9 +158,15 @@ public class UIShopList : MonoBehaviour
         else
         {
             Debug.Log($"코인이 부족합니다!!!");
+            imgGuide.SetActive(true);
+            Invoke("CloseGuide", 0.7f);
         }
 
 
+    }
+    public void CloseGuide()
+    {
+        imgGuide.SetActive(false);
     }
 
     public void ToList()

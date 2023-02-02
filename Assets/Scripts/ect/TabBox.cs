@@ -32,8 +32,8 @@ public class TabBox : MonoBehaviour
             {
                 CurrentTouch = hit.transform.gameObject;
                 GameManager.GetInstance().GetCoin1(uiMainMenu1);
+                uiMainMenu1.PopTabEffect();
             }
         }
     }
-
 }

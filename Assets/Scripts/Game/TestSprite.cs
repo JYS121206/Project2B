@@ -48,6 +48,8 @@ public class TestSprite : MonoBehaviour
         next = true;
         curF = 0;
 
+        if (CharacterManager1.GetInstance().Pick1st)
+            player.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>($"Image/Sprite/{CharacterManager1.GetInstance().Character[CharacterManager1.GetInstance().Pick].characterName}");
         //btnJumpL.onClick.AddListener(JumpL);
         //btnJumpR.onClick.AddListener(JumpR);
     }
