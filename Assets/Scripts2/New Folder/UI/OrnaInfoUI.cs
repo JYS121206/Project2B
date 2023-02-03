@@ -22,11 +22,13 @@ public class OrnaInfoUI : MonoBehaviour
 
     private GameObject ornaRoom;
 
-    private Button[] btnOrnaPick;
+    public Button[] btnOrnaPick;
 
     [SerializeField] private GameObject ornaRoomObjs;
 
     OrnaBookBtns ornaBookBtns;
+
+    public Text txtAbout2;
 
     bool isInit = false;
 
@@ -41,6 +43,7 @@ public class OrnaInfoUI : MonoBehaviour
     private void Start()
     {
         listClose.onClick.AddListener(CloseOrnaInfo); // 가구 설명 리스트 닫기
+
         
     }
 
@@ -84,6 +87,9 @@ public class OrnaInfoUI : MonoBehaviour
                 ornaImage.sprite = Resources.Load<Sprite>($"OrnaUI/{OrnamentManager.GetInstance()._ornamentsList[i][ornaidx].prefabName}");  // 이미지 로드
                 btnOrnaPick[ornaidx].gameObject.SetActive(true);
 
+                
+                txtAbout2.text = $"{OrnamentManager.GetInstance()._ornamentsList[i][ornaidx].ornamentName} 겟! 멋진 가구!! made by 솔빈";
+                
                 //ornaRoomObjs.GetComponent<OrnaRoomObj>().LoadOrnaObj(ornaidx);
             }
         }

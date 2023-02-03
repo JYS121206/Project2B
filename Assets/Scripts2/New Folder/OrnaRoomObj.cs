@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class OrnaRoomObj : MonoBehaviour
 {
-    [SerializeField] private GameObject objOrnaments;
+    //[SerializeField] private GameObject objOrnaments;
 
     //[SerializeField] private Transform[] objOrnament;
 
@@ -32,12 +32,14 @@ public class OrnaRoomObj : MonoBehaviour
 
 
         ScensChangeB();
-        
-        
-        lROrnaList.gameObject.SetActive(false);
-        yaOrnaList.gameObject.SetActive(false);
 
-        bROrnaList.gameObject.SetActive(true);
+       bROrnaList.gameObject.SetActive(RoomManager.GetInstance()._roomscheck[0][0].roomcheck);
+       lROrnaList.gameObject.SetActive(RoomManager.GetInstance()._roomscheck[0][1].roomcheck);
+       yaOrnaList.gameObject.SetActive(RoomManager.GetInstance()._roomscheck[0][2].roomcheck);
+       
+    
+
+        
     }
 
     private void Start()

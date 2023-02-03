@@ -41,6 +41,7 @@ public class OrnaBookBtns : MonoBehaviour
     private void Awake()
     {
         OrnaBookBtnSetting();
+        
     }
     private void Start()
     {
@@ -57,7 +58,7 @@ public class OrnaBookBtns : MonoBehaviour
 
         OrnaBookBtn();
         SetOrnamentList();
-
+        // ornaInfoUI.GetComponent<OrnaInfoUI>().SetRoomData();
     }
 
 
@@ -86,7 +87,7 @@ public class OrnaBookBtns : MonoBehaviour
     {
         
         ornaAllList.gameObject.SetActive(true);
-
+        OrnaBookBtn();
         ornaInfoUI.GetComponent<OrnaInfoUI>().SetRoomData();
         isInit = true;
     }

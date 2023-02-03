@@ -1292,7 +1292,7 @@ RectTransform:
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &239117219
 Animator:
-  serializedVersion: 3
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1305,10 +1305,11 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &243048509
 GameObject:
   m_ObjectHideFlags: 0
@@ -2743,7 +2744,9 @@ MonoBehaviour:
   ornaUIfrofile: {fileID: 1471940598}
   ornaUIList: {fileID: 974792186}
   listClose: {fileID: 622733840}
+  btnOrnaPick: []
   ornaRoomObjs: {fileID: 1875897621}
+  txtAbout2: {fileID: 142390173}
 --- !u!114 &418020729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4219,7 +4222,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1652469458}
   m_HandleRect: {fileID: 1652469457}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -16957,7 +16960,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 527956358d221b642987ee5a0551087b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objOrnaments: {fileID: 0}
   bROrnaList: {fileID: 1342998169}
   lROrnaList: {fileID: 1643786342}
   yaOrnaList: {fileID: 359874558}
@@ -17259,7 +17261,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1890981753
 RectTransform:
   m_ObjectHideFlags: 0
@@ -24113,7 +24115,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 5010011802960015437}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.99999994
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

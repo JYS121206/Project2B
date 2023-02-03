@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,10 +23,15 @@ public class OrnaRoom : MonoBehaviour
 
         btnChangeRoom = btnChangeRooms.GetComponentsInChildren<Button>();
 
-        for (int i = 0; i < room.Length; i++) 
-            room[i].gameObject.SetActive(false);
+        
 
-        room[0].gameObject.SetActive(true);
+        for (int i = 0; i < room.Length; i++)
+        {
+            room[i].gameObject.SetActive(RoomManager.GetInstance()._roomscheck[0][i].roomcheck);
+        }
+
+        
+        //room[0].gameObject.SetActive(true);
 
 
     }
@@ -51,12 +57,23 @@ public class OrnaRoom : MonoBehaviour
             {
                 room[i].gameObject.SetActive(true);
                 if (i == 0)
+                {
                     ornaRoomObj.GetComponent<OrnaRoomObj>().BROrnaListTrue();
+                    RoomManager.GetInstance()._roomscheck[0][i].roomcheck = true;
+                }
                 else if (i == 1)
+                {
                     ornaRoomObj.GetComponent<OrnaRoomObj>().LROrnaListTrue();
+                    RoomManager.GetInstance()._roomscheck[0][i].roomcheck = true;
+                }
                 else if (i == 2)
+                {
                     ornaRoomObj.GetComponent<OrnaRoomObj>().YaOrnaListTrue();
-            }
+                    RoomManager.GetInstance()._roomscheck[0][i].roomcheck = true;
+                }
+
+
+                }
             else if (room[i] == room[roomnum] && room[i].activeSelf == true)
             {
 
@@ -66,11 +83,21 @@ public class OrnaRoom : MonoBehaviour
             {
                 room[i].gameObject.SetActive(false);
                 if (i == 0)
+                {
                     ornaRoomObj.GetComponent<OrnaRoomObj>().BROrnaListFalse();
+                    RoomManager.GetInstance()._roomscheck[0][i].roomcheck = false;
+                }
+
                 else if (i == 1)
+                {
                     ornaRoomObj.GetComponent<OrnaRoomObj>().LROrnaListFalse();
+                    RoomManager.GetInstance()._roomscheck[0][i].roomcheck = false;
+                }
                 else if (i == 2)
+                {
                     ornaRoomObj.GetComponent<OrnaRoomObj>().YaOrnaListFalse();
+                    RoomManager.GetInstance()._roomscheck[0][i].roomcheck = false;
+                }
             }
         }
 
