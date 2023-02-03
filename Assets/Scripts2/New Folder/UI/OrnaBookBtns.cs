@@ -46,20 +46,21 @@ public class OrnaBookBtns : MonoBehaviour
     private void Start()
     {
         Close.onClick.AddListener(CloseOrnaList); // 도감 닫기 버튼클릭
-    }
-
-
-
-
-    private void Update()
-    {
-        if (isInit == false)
-            return;
-
-        OrnaBookBtn();
         SetOrnamentList();
-        // ornaInfoUI.GetComponent<OrnaInfoUI>().SetRoomData();
     }
+
+
+
+
+    // private void Update()
+    // {
+    //     //if (isInit == false)
+    //     //    return;
+    // 
+    //     //OrnaBookBtn();
+    //     //SetOrnamentList();
+    //     // ornaInfoUI.GetComponent<OrnaInfoUI>().SetRoomData();
+    // }
 
 
     public void SetOrnamentList()

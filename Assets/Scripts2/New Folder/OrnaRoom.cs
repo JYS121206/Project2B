@@ -101,6 +101,8 @@ public class OrnaRoom : MonoBehaviour
             }
         }
 
-        //OrnaInfoUI.GetComponent<OrnaBookBtns>().OrnaBookBtn(roomnum);
+
+
+        OrnaInfoUI.GetComponent<OrnaBookBtns>().OrnaBookBtn();
     }
 }
