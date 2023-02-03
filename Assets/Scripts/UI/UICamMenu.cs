@@ -7,7 +7,7 @@ public class UICamMenu : MonoBehaviour
 {
     public Button btnToMain;
     public Button btnToMain2;
-    public Button btnMenu;
+    public Button btnOpenCharacterList;
     public Button btnChangeMode;
 
     public Button btnOpenList;
@@ -44,7 +44,7 @@ public class UICamMenu : MonoBehaviour
 
         btnToMain.onClick.AddListener(ToMainScene);
         btnToMain2.onClick.AddListener(ToMainScene);
-        btnMenu.onClick.AddListener(OpenMenu);
+        btnOpenCharacterList.onClick.AddListener(OpenCharacterList);
         btnChangeMode.onClick.AddListener(ToARSetScene);
 
     }

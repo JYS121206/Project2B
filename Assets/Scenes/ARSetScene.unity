@@ -6386,7 +6386,7 @@ PrefabInstance:
     - target: {fileID: 8242439733635099133, guid: 22716e93907e9d448895d44b5f95d29d,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OpenMenu
+      value: OpenCharacterList
       objectReference: {fileID: 0}
     - target: {fileID: 8242439733635099133, guid: 22716e93907e9d448895d44b5f95d29d,
         type: 3}

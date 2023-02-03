@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2762882517644126570
 RectTransform:
   m_ObjectHideFlags: 0
@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 2762882517644126592}
   - component: {fileID: 2762882517644126595}
   m_Layer: 5
-  m_Name: btnMenu
+  m_Name: btnCharaacterList
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -186,7 +186,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: fc79bb92ba3e0644bb938fa2cc6d993c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9faf7e8a15a194f4ca23d81c6c0ac294, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -479,7 +479,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   btnToMain: {fileID: 0}
   btnToMain2: {fileID: 0}
-  btnMenu: {fileID: 0}
+  btnOpenCharacterList: {fileID: 2762882517644126595}
   btnChangeMode: {fileID: 2762882517644126612}
   btnOpenList: {fileID: 0}
   btnCloseList: {fileID: 0}
@@ -667,6 +667,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MenuGroup
+      objectReference: {fileID: 0}
+    - target: {fileID: 7953407608250846335, guid: 68b549cc9b5c9d64dae73247eb6c853c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8990939646084906146, guid: 68b549cc9b5c9d64dae73247eb6c853c,
         type: 3}

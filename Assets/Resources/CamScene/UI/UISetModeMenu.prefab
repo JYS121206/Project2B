@@ -239,7 +239,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8242439733635099113}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1834917899557498155}
+        m_TargetAssemblyTypeName: UISetModeMenu, Assembly-CSharp
+        m_MethodName: ToMainScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8242439733635098992
 GameObject:
   m_ObjectHideFlags: 0
@@ -483,7 +495,6 @@ MonoBehaviour:
   btnToMain: {fileID: 8242439733635099120}
   btnSet: {fileID: 8242439733635099125}
   btnChangeMode: {fileID: 8242439733635099114}
-  btnPrintSc: {fileID: 8621547071235559950}
   btnOpenList: {fileID: 8688867983590352121}
   btnCloseList: {fileID: 8818712965058125861}
   ListGroup: {fileID: 4600137832194787594}
@@ -508,7 +519,7 @@ GameObject:
   - component: {fileID: 8242439733635099134}
   - component: {fileID: 8242439733635099133}
   m_Layer: 5
-  m_Name: btnMenu
+  m_Name: btnOpenCharacterList
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -561,7 +572,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: fc79bb92ba3e0644bb938fa2cc6d993c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9faf7e8a15a194f4ca23d81c6c0ac294, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -615,9 +626,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UICamMenu, Assembly-CSharp
-        m_MethodName: OpenMenu
+      - m_Target: {fileID: 1834917899557498155}
+        m_TargetAssemblyTypeName: UISetModeMenu, Assembly-CSharp
+        m_MethodName: OpenCharacterList
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -807,7 +818,7 @@ PrefabInstance:
     - target: {fileID: 7953407608250846335, guid: 68b549cc9b5c9d64dae73247eb6c853c,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8990939646084906146, guid: 68b549cc9b5c9d64dae73247eb6c853c,
         type: 3}

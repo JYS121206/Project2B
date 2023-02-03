@@ -8,7 +8,7 @@ public class UISetModeMenu : MonoBehaviour
     public Button btnToMain;
     public Button btnSet;
     public Button btnChangeMode;
-    public Button btnPrintSc;
+    //public Button btnPrintSc;
 
     public Button btnOpenList;
     public Button btnCloseList;
@@ -57,35 +57,35 @@ public class UISetModeMenu : MonoBehaviour
         
     }
 
-    public void ChangeMode()
-    {
-        if (btnPrintSc == null && ListGroup == null)
-            return;
+    //public void ChangeMode()
+    //{
+    //    if (btnPrintSc == null && ListGroup == null)
+    //        return;
 
-        if (camMode)
-        {
-            btnPrintSc.gameObject.SetActive(false);
-            ListGroup.SetActive(false);
-            btnOpenList.gameObject.SetActive(false);
+    //    if (camMode)
+    //    {
+    //        btnPrintSc.gameObject.SetActive(false);
+    //        ListGroup.SetActive(false);
+    //        btnOpenList.gameObject.SetActive(false);
 
-            //getRabbitMode.SetActive(true);
-            //setRabbitMode.SetActive(false);
+    //        //getRabbitMode.SetActive(true);
+    //        //setRabbitMode.SetActive(false);
 
-            camMode = false;
+    //        camMode = false;
 
-        }
-        else
-        {
-            btnPrintSc.gameObject.SetActive(true);
-            ListGroup.SetActive(false);
-            btnOpenList.gameObject.SetActive(true);
+    //    }
+    //    else
+    //    {
+    //        btnPrintSc.gameObject.SetActive(true);
+    //        ListGroup.SetActive(false);
+    //        btnOpenList.gameObject.SetActive(true);
             
-            //getRabbitMode.SetActive(false);
-            //setRabbitMode.SetActive(true);
+    //        //getRabbitMode.SetActive(false);
+    //        //setRabbitMode.SetActive(true);
             
-            camMode = true;
-        }
-    }
+    //        camMode = true;
+    //    }
+    //}
 
     public void OpenMenu()
     {

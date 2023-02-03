@@ -5370,7 +5370,7 @@ PrefabInstance:
     - target: {fileID: 1726204100171970949, guid: 951c05763b297ef4e87957095f62e240,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1765001705970459949, guid: 951c05763b297ef4e87957095f62e240,
         type: 3}
@@ -5560,7 +5560,7 @@ PrefabInstance:
     - target: {fileID: 2762882517644126595, guid: 951c05763b297ef4e87957095f62e240,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OpenMenu
+      value: OpenCharacterList
       objectReference: {fileID: 0}
     - target: {fileID: 2762882517644126595, guid: 951c05763b297ef4e87957095f62e240,
         type: 3}
